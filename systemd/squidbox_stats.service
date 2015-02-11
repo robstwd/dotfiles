@@ -1,0 +1,8 @@
+[Unit]
+Description=Gets stats from my PC and posts to ThingSpeak 
+
+[Service]
+Nice=19
+IOSchedulingClass=2
+IOSchedulingPriority=7
+ExecStart=/usr/bin/python /home/rob/bin/squidbox_stats.py

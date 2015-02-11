@@ -1,0 +1,59 @@
+<?xml encoding="UTF-8" version="1.0"?>
+<actions>
+<action>
+	<icon>utilities-terminal</icon>
+	<name>Open Terminal Here</name>
+	<unique-id>1415954878552761-1</unique-id>
+	<command>exo-open --working-directory %f --launch TerminalEmulator</command>
+	<description>Example for a custom action</description>
+	<patterns>*</patterns>
+	<startup-notify/>
+	<directories/>
+</action>
+<action>
+	<icon></icon>
+	<name>Create symlink</name>
+	<unique-id>1417289688175125-1</unique-id>
+	<command>ln -s %f &quot;%n (symlink)&quot;</command>
+	<description></description>
+	<patterns>*</patterns>
+	<directories/>
+	<other-files/>
+</action>
+<action>
+	<icon></icon>
+	<name>Copy pathname to clipboard</name>
+	<unique-id>1423652566923809-1</unique-id>
+	<command>echo -n %f | xclip -i</command>
+	<description>Copies file&apos;s full pathname to the X Primary selection</description>
+	<patterns>*</patterns>
+	<directories/>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+<action>
+	<icon></icon>
+	<name>Compare</name>
+	<unique-id>1417289736054708-3</unique-id>
+	<command>meld %F</command>
+	<description></description>
+	<patterns>*</patterns>
+	<text-files/>
+</action>
+<action>
+	<icon></icon>
+	<name>How big?</name>
+	<unique-id>1417292117931112-1</unique-id>
+	<command>xterm -hold -e du -chs %N</command>
+	<description>Showqs the total size of selected files and directories</description>
+	<patterns>*</patterns>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+</actions>

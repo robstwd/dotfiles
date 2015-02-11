@@ -1,0 +1,18 @@
+[user]
+	email = rob.eastwood8@gmail.com
+	name = Rob Eastwood
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+	unstage = reset HEAD --
+	last = log -1 HEAD
+	editor = /usr/bin/vim
+	hist = log --pretty=format:"%h %ad | %s%d [%an]" --graph --date=short
+[color]
+	ui = auto
+[merge]
+	tool = meld
+[gui]
+	spellingdictionary = none

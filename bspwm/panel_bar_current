@@ -1,0 +1,155 @@
+#! /bin/sh
+#
+# Example panel for LemonBoy's bar
+
+# updated for new PC 2014-11-17
+
+# ====================================================================================
+# formatting guidelines
+# Every formatting block is opened with %{ and closed by } and accepts the following commands, the parser tries it's best to handle malformed input.
+
+       # R   Swap the current background and foreground colors.
+
+       # l   Aligns the following text to the left side of the screen.
+
+       # c   Aligns the following text to the center of the screen.
+
+       # r   Aligns the following text to the right side of the screen.
+
+       # Bcolor
+           # Set the text background color. The parameter color can be - or a color in one of the
+           # formats mentioned before. The special value - resets the color to the default one.
+
+       # Fcolor
+           # Set the text foreground color. The parameter  can be - or a color in one of the
+           # formats mentioned before. The special value - resets the color to the default one.
+
+       # Ucolor
+           # Set the text underline color. The parameter color can be - or a color in one of the
+           # formats mentioned before. The special value - resets the color to the default one.
+
+       # A:command:
+           # Create a clickable area starting from the current position, when the area is clicked
+           # command is executed. The area is closed when a A token, not followed by : is encountered.
+
+           # Eg. %{A:reboot:} Click here to reboot %{A}
+
+       # Sdir
+           # Change the monitor bar is rendering to. dir
+           # can be either
+
+           # +/- Next/previous monitor.
+
+           # f/l First/last monitor.
+
+           # 0-9 Nth monitor.
+
+       # Attribute modifiers
+
+       # +attribute
+           # Set the attribute attribute for the following text.
+
+       # -attribute
+           # Unset the attribute attribute for the following text.
+
+       # !attribute
+           # Toggle the attribute attribute for the following text.
+
+       # Where attribute is one of the following
+
+           # o   Draw a line over the text.
+
+           # u   Draw a line under the text.
+
+# ====================================================================================
+
+# set colours
+. panel_colors
+
+num_mon=$(bspc query -M | wc -l)
+
+while read -r line ; do
+  case $line in
+    S*)
+      # clock output
+      sys_infos="${line#?}"
+      ;;
+    T*)
+      # xtitle output
+      title="${line#?}"
+      ;;
+    W*)
+      # bspwm internal state
+      wm_infos=""
+      IFS=':'
+      set -- ${line#?}
+      while [ $# -gt 0 ] ; do
+        item=$1
+        name=${item#?}
+
+        case $item in
+					M*)
+						# active monitor
+						if [ $num_mon -gt 1 ] ; then
+							wm_infos="$wm_infos%{F$COLOR_ACTIVE_MONITOR_FG}%{B$COLOR_ACTIVE_MONITOR_BG}  ${name}  %{B-}%{F-}  "
+						fi
+						;;
+					m*)
+						# inactive monitor
+						if [ $num_mon -gt 1 ] ; then
+							wm_infos="$wm_infos%{F$COLOR_INACTIVE_MONITOR_FG}%{B$COLOR_INACTIVE_MONITOR_BG}  ${name}  %{B-}%{F-}  "
+						fi
+						;;
+          O*)
+            # focused occupied desktop
+            wm_infos="${wm_infos}%{U$COLOR5 F$COLOR5 B$COLOR2 +u}  ${name}  %{-u U- F- B-}"
+            ;;
+          F*)
+            # focused free desktop
+            wm_infos="${wm_infos}%{U$COLOR2 F$COLOR5 B$COLOR2}  ${name}  %{U- F- B-}"
+            ;;
+          U*)
+            # focused urgent desktop
+            wm_infos="${wm_infos}%{U$COLOR9 +u}  ${name}  %{-u U- F- B-}"
+            ;;
+          o*)
+            # inactive but occupied desktop
+            # wm_infos="${wm_infos}%{U$COLOR5 B$COLOR8 +u}  ${name}  %{-u U- F- B-}"
+            wm_infos="${wm_infos}%{B$COLOR8}  ${name}  %{-u U- F- B-}"
+            ;;
+          f*)
+            # free desktop ie inactive
+            wm_infos="${wm_infos}%{F$COLOR4}  ${name}  %{U- F- B-}"
+            ;;
+          u*)
+            # urgent desktop
+            wm_infos="${wm_infos}%{F$COLOR0}%{B$COLOR3}  ${name}  %{U- F- B-}"
+            ;;
+          L*)
+            # layout
+            # wm_infos="$wm_infos  %{F$COLOR4} [${name}] %{B-}%{F-}"
+            ;;
+        esac
+        shift
+      done
+      ;;
+  esac
+  
+  # use this to determine the wm_infos string contents
+  # echo ${wm_infos} > wm_info
+
+
+  # clean the wm_infos string
+  substr1="%{F}%{B}  HDMI-0  %{B-}%{F-}  "      # remove this from the start of the wm_info string
+  wm_infos_cut=${wm_infos#*${substr1}}          # strips off the unwanted beginning of wm_infos
+
+  # use this substring to split the remaining wm_infos string
+  substr2="%{F}%{B}  DVI-I-0  %{B-}%{F-}  "
+  dvi_desk_info=${wm_infos_cut#*${substr2}}     # strips off the text before this string, ie the DVI desktop info
+  hdmi_desk_info=${wm_infos_cut%${substr2}*}    # strips off the text after the beginning of this string, ie the HDMI desktop info
+
+  # and finally print the dvi_desk_info first (ie monitor on left), switch to the right monitor (`S1`), print the hdmi_desk_info, then print the sysinfo (ie clock)
+  printf "%s\n" "%{l}%{FCOLOR5}${dvi_desk_info}%{F-} %{S1}%{l}%{FCOLOR5}${hdmi_desk_info} %{F-}%{F$COLOR4} $title%{F-} %{r}%{F$COLOR4}$sys_infos%{F-} "
+
+done
+

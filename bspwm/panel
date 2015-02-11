@@ -1,0 +1,25 @@
+#! /bin/sh
+
+PANEL_HEIGHT=10
+
+if [ $(pgrep -cx panel) -gt 1 ] ; then
+    printf "%s\n" "The panel is already running." >&2
+    exit 1
+fi
+
+# The panel can now be properly killed with `pkill -x panel`.
+trap 'trap - TERM; kill 0' INT TERM QUIT EXIT
+
+[ -e "$PANEL_FIFO" ] && rm "$PANEL_FIFO"
+mkfifo "$PANEL_FIFO"
+
+bspc control --subscribe > "$PANEL_FIFO" &
+xtitle -sf 'T%s' > "$PANEL_FIFO" &
+#~ bspwm_status > "$PANEL_FIFO" &
+clock -sf 'S%a %d %b %H:%M' > "$PANEL_FIFO" &
+
+#~ cat "$PANEL_FIFO" | panel_bar_current | bar -f "-*-terminus-medium-r-*-*-16-*-*-*-*-*-*-*" -u 2 &
+#~ cat "$PANEL_FIFO" | panel_bar_current | bar -f "-bitstream-*-medium-r-*-*-*-*-*-*-*-*-*-*" -u 2 &
+cat "$PANEL_FIFO" | panel_bar_current | bar -f "-*-dejavu sans mono for powerline-medium-r-normal-*-17-*-*-*-*-*-*-*" -u 2 &
+
+wait

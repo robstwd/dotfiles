@@ -1,0 +1,28 @@
+body {
+  background-color: #020202;
+  font-family: "Monospace";
+  font-size: 14px;
+  font-weight: normal;
+  margin-left: 7%;
+}
+a:link,a:visited,a:active {
+  text-decoration: none;
+  color: #999999;
+  font-weight: normal;
+}
+a:hover {
+  text-decoration: underline;
+  color: #999999;
+  font-weight: normal;
+}
+table {
+  border-spacing: 8px;
+}
+td:first-child {
+  font-weight: bold;
+  color: #B3B3B3
+}
+td:nth-child(2) {
+  font-weight: normal;
+  color: #4C4C4C;
+}

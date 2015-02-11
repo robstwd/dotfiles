@@ -1,0 +1,11 @@
+[Unit]
+Description=Create Symlinks for Optical Drives 
+
+[Service]
+Type=oneshot
+ExecStart=/bin/ln -s /dev/sr0 /dev/cdrw
+ExecStart=/bin/ln -s /dev/sr0 /dev/dvd
+ExecStart=/bin/ln -s /dev/sr0 /dev/dvdrw
+
+[Install]
+WantedBy=multi-user.target
