@@ -12,7 +12,11 @@
 	hist = log --pretty=format:"%h %ad | %s%d [%an]" --graph --date=short
 [color]
 	ui = auto
+	branch = auto
+	status = auto
 [merge]
 	tool = meld
 [gui]
 	spellingdictionary = none
+[push]
+	default = simple
