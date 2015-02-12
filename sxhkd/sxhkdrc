@@ -336,7 +336,7 @@ ctrl + Escape
 ########################
 
 super + F1
-    notify-send "git-status dotfiles" "$(ruby ~/bin/get_git_status.rb ~/scripts/Projects/dotfiles)"
+    notify-send "git-status dotfiles" "$(ruby /home/rob/scripts/Projects/git_status/bin/get_git_status.rb /home/rob/scripts/Projects/dotfiles/dotfile_repo/)"
 
 super + F2
     dmenu_dismount
