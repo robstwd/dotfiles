@@ -7,18 +7,6 @@ while true ; do
   # start sxhkd
   sxhkd -c ~/.config/sxhkd/sxhkdrc &
 
-  # start tint2
-  # tint2 &
-
-  # start wkline
-  # wkline &
-
-  # start plank
-  # plank &
-
-  # start compton
-  # compton --config ~/.config/compton/compton.conf -b
-
   # start bspwm
   bspwm -c /home/rob/.config/bspwm/bspwmrc || break
 
