@@ -70,10 +70,8 @@ bspc rule -a Gimp desktop=^8 follow=on floating=on
 bspc rule -a Kcalc follow=on floating=on
 bspc rule -a Nitrogen follow=on floating=on
 bspc rule -a Vlc follow=on floating=on
-bspc rule -a Sol follow=on floating=on
 bspc rule -a Klavaro follow=on floating=on
 bspc rule -a Steam follow=on fullscreen=on
-bspc rule -a Plank focus=on
 
 
 ########################
