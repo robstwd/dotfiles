@@ -22,8 +22,9 @@ GIT_PS1_DESCRIBE_STYLE="branch"
 GIT_PS1_SHOWUPSTREAM="auto git"
 
 # prompt colours (for rasp pi)
-STARTFGCOLOR='\e[0;34m';
-STARTBGCOLOR="\e[0;41m"
+STARTFGCOLOR='\e[0;34m'
+STARTBGCOLOR1="\e[0;41m"
+STARTBGCOLOR2="\e[42m"
 ENDCOLOR="\e[0m"
 
 # source aliases
@@ -43,6 +44,8 @@ bind '"\t":menu-complete'
 # terminal prompt
 # PS1='[\u@\h \W]\$ '         # default setting
 
+# configure the bash prompts and ENV variables for different environments
+# for my PC have it look like: [ rob@squidbox ] [ ~ ] 08:09:54 
 if [ $(uname -m) == 'x86_64' ]
 then
   export BSPWM_SOCKET="/tmp/bspwm-socket"
@@ -52,5 +55,12 @@ then
   export PANEL_FIFO="/tmp/panel-fifo"
   export PS1='[ \u@\h ] [ \W ] \t $(__git_ps1 " (%s)")\n$ '
 else
-  export PS1="$STARTFGCOLOR$STARTBGCOLOR Raspberry Pi > \u@\h \w $ENDCOLOR\n$ "
+  if [ $(uname -n) == 'alarmpi' ]
+  then
+    # for the raspberry pi 1, give a red background
+    export PS1="$STARTFGCOLOR$STARTBGCOLOR1 Raspberry Pi > \u@\h \w $ENDCOLOR\n$ "
+  else
+    # and a green background for the raspberry pi 2
+    export PS1="$STARTFGCOLOR$STARTBGCOLOR2 Raspberry Pi 2 > \u@\h \w $ENDCOLOR\n$ "
+  fi
 fi
