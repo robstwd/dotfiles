@@ -122,6 +122,7 @@ alias cr='repo_check.sh bspwm sxhkd xtitle sutils bar xwinfo'
 alias rr='rsync_to_raspi.py'
 alias pq='pushover_quotes.py'
 alias ts="scrot ~/Pictures/screenshots/squidbox/'%F-%H%M%S_scrot.png'"
+alias cs='du --max-depth=1 -h'                  # check the size of the subfolders
 
 # python aliases
 alias nt='nosetests3'
