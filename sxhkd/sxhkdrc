@@ -226,7 +226,7 @@ alt + {_,shift + }d
 alt + e
     google-earth
 alt + {_,shift + }f
-    {thunar,firefox}
+    {thunar,filezilla}
 alt + {_,shift + }g
     {geany,gimp}
 alt + {_,shift + }h
