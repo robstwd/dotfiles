@@ -18,7 +18,9 @@ alias scs='systemctl status '
 alias ssc='sudo systemctl '
 alias ssdr='sudo systemctl daemon-reload'
 alias sst='sudo systemctl start '
+alias start='sudo systemctl start '
 alias ssp='sudo systemctl stop '
+alias stop='sudo systemctl stop '
 alias ssrs='sudo systemctl restart '
 alias ssrl='sudo systemctl reload '
 alias sse='sudo systemctl enable '
@@ -123,6 +125,7 @@ alias rr='rsync_to_raspi.py'
 alias pq='pushover_quotes.py'
 alias ts="scrot ~/Pictures/screenshots/squidbox/'%F-%H%M%S_scrot.png'"
 alias cs='du --max-depth=1 -h'                  # check the size of the subfolders
+alias rsf='sudo rsync_systemd_files.sh'
 
 # python aliases
 alias nt='nosetests3'
