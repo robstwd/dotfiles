@@ -1,5 +1,5 @@
 [Unit]
-Description=Gets stats from my PC and posts to ThingSpeak 
+Description=Gets stats from my PC and posts to Thingspeak
 
 [Service]
 Nice=19
