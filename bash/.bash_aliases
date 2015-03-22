@@ -124,7 +124,8 @@ alias cr='repo_check.sh bspwm sxhkd xtitle sutils bar xwinfo'
 alias rr='rsync_to_raspi.py'
 alias pq='pushover_quotes.py'
 alias ts="scrot ~/Pictures/screenshots/squidbox/'%F-%H%M%S_scrot.png'"
-alias cs='du --max-depth=1 -h'                  # check the size of the subfolders
+alias cs='du --max-depth=1 -h'                                          # check the size of the subfolders
+# alias cs2="du -s * | sort -rn | cut -f2- | xargs -d '\n' du -sh"      # alternative for sorting by file/folder size
 alias rsf='sudo rsync_systemd_files.sh'
 
 # python aliases
