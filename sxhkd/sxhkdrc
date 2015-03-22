@@ -236,7 +236,7 @@ alt + {_,shift + }i
 alt + j
     kpat
 alt + {_,shift + }k
-    {klavaro,k9copy}
+    {kodi,klavaro}
 alt + l
     leafpad
 alt + {_,shift + }m
@@ -263,7 +263,8 @@ alt + w
     midori
 alt + {_,shift + }x
     {xmahjongg,xfburn}
-# alt + y
+alt + y
+    totem
 
 alt + z
     urxvtc -geometry 95x30
