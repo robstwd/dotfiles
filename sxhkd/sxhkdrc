@@ -265,7 +265,6 @@ alt + {_,shift + }x
     {xmahjongg,xfburn}
 alt + y
     totem
-
 alt + z
     urxvtc -geometry 95x30
 
