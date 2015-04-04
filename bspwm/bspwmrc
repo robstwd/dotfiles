@@ -71,6 +71,8 @@ bspc rule -a Kcalc follow=on floating=on
 bspc rule -a Nitrogen follow=on floating=on
 bspc rule -a Vlc follow=on floating=on
 bspc rule -a Klavaro follow=on floating=on
+bspc rule -a Qt4-ssh-askpass follow=on floating=on
+bspc rule -a Sftpman-gtk follow=on floating=on
 bspc rule -a Steam follow=on fullscreen=on
 
 
