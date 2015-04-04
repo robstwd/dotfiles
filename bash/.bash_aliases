@@ -31,7 +31,7 @@ alias stv='sudo systemctl start tvheadend'
 
 
 # filesystem aliases
-alias lmts='blkid -o list -c /dev/null'
+alias lmts='sudo blkid -o list -c /dev/null'
 alias luds='ls -lF /dev/disk/by-uuid/'
 alias mnt='sudo mount'
 alias umnt='sudo umount -l'
@@ -134,3 +134,11 @@ alias pyc='wmname LG3D && pycharm'
 
 # build aliases
 alias smi='sudo make install'
+
+# mount raspberry pi 2 NAS drives with sshfs
+alias ssmi='sshfs rob@192.168.178.51:/mnt/Io mounts/Io -C -p 22'
+alias ssmc='sshfs rob@192.168.178.51:/mnt/Callisto mounts/Callisto -C -p 22'
+alias ssmg='sshfs rob@192.168.178.51:/mnt/Ganymede mounts/Ganymede -C -p 22'
+alias ssme='sshfs rob@192.168.178.51:/mnt/Europa mounts/Europa -C -p 22'
+alias smr1='sshfs rob@192.168.178.50:/ mounts/raspberrypi1 -C -p 22'
+alias smr2='sshfs rob@192.168.178.51:/ mounts/raspberrypi2 -C -p 22'
