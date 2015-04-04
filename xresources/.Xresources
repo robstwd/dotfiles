@@ -140,3 +140,6 @@ URxvt*perl-ext-common: default
 ! URxvt*tabbar-bg:                      colour
 ! URxvt*tabbar-fg:                      colour
 ! URxvt*url-launcher:                   string
+
+
+ssh-askpass*background: #000000
