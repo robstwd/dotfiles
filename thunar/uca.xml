@@ -56,4 +56,31 @@
 	<text-files/>
 	<video-files/>
 </action>
+<action>
+	<icon></icon>
+	<name>scp vids to Io</name>
+	<unique-id>1427454563353234-3</unique-id>
+	<command>urxvt -e scp %F rob@192.168.178.51:/mnt/Io/movies</command>
+	<description></description>
+	<patterns>*</patterns>
+	<video-files/>
+</action>
+<action>
+	<icon></icon>
+	<name>Symlink in ~/bin/</name>
+	<unique-id>1427371576261102-3</unique-id>
+	<command>ln -s %f /home/rob/bin/</command>
+	<description></description>
+	<patterns>*.py;*.rb;*.sh</patterns>
+	<text-files/>
+</action>
+<action>
+	<icon></icon>
+	<name>scp tv shows to Europa</name>
+	<unique-id>1427454525402229-1</unique-id>
+	<command>urxvt -e scp %F rob@192.168.178.51:/mnt/Europa/TV_shows</command>
+	<description></description>
+	<patterns>*</patterns>
+	<video-files/>
+</action>
 </actions>
