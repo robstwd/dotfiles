@@ -216,15 +216,15 @@ super + F3
 # applications
 alt + {_,shift + }a
     {urxvt -e alsamixer,asunder}
-alt + b
+alt + {_,shift + }b
 # https://bbs.archlinux.org/viewtopic.php?id=101201
-    dbus-launch brasero
+    {banshee,dbus-launch brasero}
 alt + {_,shift + }c
     {chromium,calibre}
 alt + {_,shift + }d
     {digikam,darktable}
-alt + e
-    google-earth
+alt + {_,shift + }e
+    {easytag,google-earth}
 alt + {_,shift + }f
     {thunar,filezilla}
 alt + {_,shift + }g
@@ -339,7 +339,7 @@ super + F1
     notify-send "git-status dotfiles" "$(ruby $HOME/scripts/Projects/git_status/bin/get_git_status.rb $HOME/scripts/Projects/dotfiles/dotfile_repo/)"
 
 super + F2
-    dmenu_dismount
+    sftpman-gtk
 
 # super + F3     # compton reload, defined elsewhere
 
@@ -435,4 +435,3 @@ super + alt + button1
 # new floating urxvt window for small commands
 super + alt + z
     bspc rule -a \* --one-shot floating=true follow=on && urxvtc -geometry 55x5+8+987
-
