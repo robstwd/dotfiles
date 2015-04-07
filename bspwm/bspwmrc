@@ -67,12 +67,12 @@ bspc monitor -f HDMI-0
 ## Initiate Rules:    ##
 ########################
 bspc rule -a Gimp desktop=^8 follow=on floating=on
-bspc rule -a Kcalc follow=on floating=on
+bspc rule -a Kcalc follow=on floating=on center=true
 bspc rule -a Nitrogen follow=on floating=on
-bspc rule -a Vlc follow=on floating=on
+bspc rule -a Vlc follow=on floating=on center=true
 bspc rule -a Klavaro follow=on floating=on
-bspc rule -a Qt4-ssh-askpass follow=on floating=on
-bspc rule -a Sftpman-gtk follow=on floating=on
+bspc rule -a Qt4-ssh-askpass follow=on floating=on center=true
+bspc rule -a Sftpman-gtk follow=on floating=on center=true
 bspc rule -a Steam follow=on fullscreen=on
 
 
