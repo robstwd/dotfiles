@@ -102,7 +102,8 @@ while read -r line ; do
 						;;
           O*)
             # focused occupied desktop
-            wm_infos="${wm_infos}%{U$COLOR5 F$COLOR5 B$COLOR2 +u}  ${name}  %{-u U- F- B-}"
+            #~ wm_infos="${wm_infos}%{U$COLOR5 F$COLOR5 B$COLOR2 +u}  ${name}  %{-u U- F- B-}"
+            wm_infos="${wm_infos}%{F$COLOR5 B$COLOR2}  ${name}  %{F- B-}"
             ;;
           F*)
             # focused free desktop
