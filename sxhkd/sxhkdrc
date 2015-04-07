@@ -319,17 +319,11 @@ XF86Calculator
 Print
     scrot -q 100
 
-# run interrobang launcher
-super + Menu
-    interrobang
-
 # invoke rofi
 # old: rofi -now -font "snap-10" -fg "#ffffff" -bg "#000000" -hlfg "#FFFFFF" -hlbg "#33b5e5" -bc "#000ac9"
-alt + Tab
-    rofi -now -font "snap-16" -fg "#ffffff" -bg "#000000" -hlfg "#FFFFFF" -hlbg "#33b5e5" -bc "#000ac9"
-    
+# old: rofi -show window -font "snap-16" -fg "#ffffff" -bg "#000000" -hlfg "#FFFFFF" -hlbg "#33b5e5" -bc "#000ac9"   
 ctrl + Escape    
-    rofi -now -font "snap-16" -fg "#ffffff" -bg "#000000" -hlfg "#FFFFFF" -hlbg "#33b5e5" -bc "#000ac9"
+    rofi -show window
 
 ########################
 ## Function keys:     ##

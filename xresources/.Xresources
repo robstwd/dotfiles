@@ -143,3 +143,31 @@ URxvt*perl-ext-common: default
 
 
 ssh-askpass*background: #000000
+
+
+rofi.width:               1000
+rofi.lines:               10
+rofi.columns:             1
+rofi.font:                snap-16
+rofi.bw:                  5
+rofi.padding:             8
+rofi.yoffset:             0
+rofi.xoffset:             -2
+rofi.fixed-num-lines:     true
+rofi.hmode:               false
+rofi.terminal:            urxvt
+rofi.ssh-set-title:       true
+! rofi.key:               F12
+! rofi.rkey:              mod1+F2
+! rofi.skey:              mod1+F3
+rofi.location:            6
+rofi.sidebar-mode:        true
+
+rofi.fg:                  #ffffff
+rofi.bg:                  #000000
+rofi.hlfg:                #FFFFFF
+rofi.hlbg:                #33b5e5
+rofi.bc:                  #000ac9
+rofi.disable-history:     false
+rofi.levenshtein-sort:    true
+rofi.switchers:           window,run,ssh
