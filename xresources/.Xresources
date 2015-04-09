@@ -161,7 +161,7 @@ rofi.ssh-set-title:       true
 ! rofi.rkey:              mod1+F2
 ! rofi.skey:              mod1+F3
 rofi.location:            6
-rofi.sidebar-mode:        true
+rofi.sidebar-mode:        false
 
 rofi.fg:                  #ffffff
 rofi.bg:                  #000000
