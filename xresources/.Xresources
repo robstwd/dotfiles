@@ -146,7 +146,7 @@ ssh-askpass*background: #000000
 
 
 rofi.width:               1000
-rofi.lines:               10
+rofi.lines:               12
 rofi.columns:             1
 rofi.font:                snap-16
 rofi.bw:                  5
@@ -160,7 +160,7 @@ rofi.ssh-set-title:       true
 ! rofi.key:               F12
 ! rofi.rkey:              mod1+F2
 ! rofi.skey:              mod1+F3
-rofi.location:            6
+rofi.location:            2
 rofi.sidebar-mode:        false
 
 rofi.fg:                  #ffffff
