@@ -55,10 +55,10 @@ then
   export PANEL_FIFO="/tmp/panel-fifo"
   export PS1='[ \u@\h ] [ \W ] \t $(__git_ps1 " (%s)")\n$ '
 else
-  if [ $(uname -n) == 'alarmpi' ]
+  if [ $(uname -n) == 'alarmpi1' ]
   then
     # for the raspberry pi 1, give a red background
-    export PS1="$STARTFGCOLOR$STARTBGCOLOR1 Raspberry Pi > \u@\h \w $ENDCOLOR\n$ "
+    export PS1="$STARTFGCOLOR$STARTBGCOLOR1 Raspberry Pi 1 > \u@\h \w $ENDCOLOR\n$ "
   else
     # and a green background for the raspberry pi 2
     export PS1="$STARTFGCOLOR$STARTBGCOLOR2 Raspberry Pi 2 > \u@\h \w $ENDCOLOR\n$ "
