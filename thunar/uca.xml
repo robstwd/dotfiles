@@ -83,4 +83,14 @@
 	<patterns>*</patterns>
 	<video-files/>
 </action>
+<action>
+	<icon></icon>
+	<name>Add to zip</name>
+	<unique-id>1429090731740481-2</unique-id>
+	<command>zip newzip.zip %N</command>
+	<description></description>
+	<patterns>*</patterns>
+	<directories/>
+	<text-files/>
+</action>
 </actions>
