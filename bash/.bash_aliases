@@ -54,6 +54,7 @@ alias keys="xev | grep -A2 --line-buffered '^KeyRelease' | sed -n '/keycode /s/^
 alias ssr1="ssh rob@192.168.178.50"
 alias ssr2="ssh rob@192.168.178.51"
 alias fa='cat ~/.bash_aliases | grep --color=auto '
+alias c='clear'
 
 
 # xinit aliases
@@ -134,6 +135,7 @@ alias pyc='wmname LG3D && pycharm'
 
 # build aliases
 alias smi='sudo make install'
+alias gyt='get_yt.sh '
 
 # mount raspberry pi 2 NAS drives with sshfs
 alias ssmi='sshfs rob@192.168.178.51:/mnt/Io mounts/Io -C -p 22'
@@ -142,3 +144,10 @@ alias ssmg='sshfs rob@192.168.178.51:/mnt/Ganymede mounts/Ganymede -C -p 22'
 alias ssme='sshfs rob@192.168.178.51:/mnt/Europa mounts/Europa -C -p 22'
 alias smr1='sshfs rob@192.168.178.50:/ mounts/raspberrypi1 -C -p 22'
 alias smr2='sshfs rob@192.168.178.51:/ mounts/raspberrypi2 -C -p 22'
+
+# docker aliases
+alias dk='docker '
+alias dr='docker run '
+
+# sourcing .bashrc
+alias sb='source ~/.bashrc'
