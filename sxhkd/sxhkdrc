@@ -241,8 +241,8 @@ alt + l
     leafpad
 alt + {_,shift + }m
     {dmenu_run -fn '-*-*-medium-r-normal-*-*-*-*-*-*-100-*-*' -p 'run:',meld}
-alt + n
-    nitrogen
+alt + {_,shift + }n
+    {nitrogen,neverball}
 alt + {_,shift + }o
     {libreoffice,openshot}
 alt + {_,shift + }p
