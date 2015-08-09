@@ -29,6 +29,15 @@ alias sle='systemctl list-unit-files | grep enabled'
 alias slt='systemctl list-timers'
 alias stv='sudo systemctl start tvheadend'
 
+# systemd --user aliases
+alias startu='systemctl --user start '
+alias stopu='systemctl --user stop '
+alias sseu='systemctl --user enable '
+alias ssdu='systemctl --user disable '
+alias scsu='systemctl --user status '
+alias scfu='systemctl --user --failed'
+alias sltu='systemctl --user list-timers'
+alias sleu='systemctl --user list-unit-files | grep enabled'
 
 # filesystem aliases
 alias lmts='sudo blkid -o list -c /dev/null'
@@ -55,6 +64,8 @@ alias ssr1="ssh rob@192.168.178.50"
 alias ssr2="ssh rob@192.168.178.51"
 alias fa='cat ~/.bash_aliases | grep --color=auto '
 alias c='clear'
+alias hx='history'
+alias hxg='history | grep -i'
 
 
 # xinit aliases
@@ -148,6 +159,14 @@ alias smr2='sshfs rob@192.168.178.51:/ mounts/raspberrypi2 -C -p 22'
 # docker aliases
 alias dk='docker '
 alias dr='docker run '
+alias di='docker images'
+alias db='docker build'
+alias rdi='docker rmi $(docker images --filter "dangling=true" --quiet)'           # remove dangling images
+alias dp='docker ps'
+alias lrc='docker ps'                                                   # list running containers
+alias dpa='docker ps --all'
+alias rsc='docker rm $(docker ps --filter status=exited --quiet)'                  # remove stopped containers
+alias de='docker exec'
 
 # sourcing .bashrc
 alias sb='source ~/.bashrc'
