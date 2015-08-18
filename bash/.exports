@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# environment variables
+export EDITOR=vim
+export XDG_CONFIG_HOME="/home/rob/.config"
+
+if [ $(uname -m) == 'x86_64' ]
+then
+  export BSPWM_SOCKET="/tmp/bspwm-socket"
+  export BSPWM_TREE="/tmp/bspwm.tree"
+  export BSPWM_HISTORY="/tmp/bspwm.history"
+  export BSPWM_STACK="/tmp/bspwm.stack"
+  export PANEL_FIFO="/tmp/panel-fifo"
+fi
+
