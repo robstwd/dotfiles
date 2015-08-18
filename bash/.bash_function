@@ -1,0 +1,24 @@
+#!/bin/bash
+
+
+# runs ssh in a docker container based on alpine
+# run with $ assh 51 or $ assh 50
+assh(){
+    server=$@
+    # check t make sure an argument is supplied.
+    if [[ -z "$@" ]]
+    then
+      echo "No argument supplied"
+    else
+    
+        docker run -it --rm \
+            -v $HOME/.ssh/known_hosts:/home/user/.ssh/known_hosts:ro \
+            -v $HOME/.bashrc:/home/user/.bashrc:ro \
+            -v $HOME/.bash_aliases:/home/user/.bash_aliases:ro \
+            --name alpine-ssh \
+            alpine-ssh \
+            ssh rob@192.168.178."$server"
+    fi
+    
+
+}
