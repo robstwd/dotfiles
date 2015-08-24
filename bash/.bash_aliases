@@ -60,8 +60,8 @@ alias keys="xev | grep -A2 --line-buffered '^KeyRelease' | sed -n '/keycode /s/^
 
 
 # misc
-alias ssr1="ssh rob@192.168.178.50"
-alias ssr2="ssh rob@192.168.178.51"
+alias ssr1="ssh raspi-1"
+alias ssr2="ssh raspi-2"
 alias fa='cat ~/.bash_aliases | grep --color=auto '
 alias c='clear'
 alias hx='history'
