@@ -64,6 +64,7 @@ alias ssr1="ssh raspi-1"
 alias ssr2="ssh raspi-2"
 alias fa='cat ~/.bash_aliases | grep --color=auto '
 alias c='clear'
+alias x='exit'
 alias hx='history'
 alias hxg='history | grep -i'
 
