@@ -34,3 +34,9 @@ elif [ $(uname -n) == 'alarmpi2' ]
 then
     export PS1="$STARTFGCOLOR$STARTBGCOLOR2 Raspberry Pi 2 > \u@\h \w $ENDCOLOR\n$ "
 fi
+
+# load private key into keychain
+if [ $(uname -n) == 'squidbox' ]
+then
+    eval $(keychain --eval -Q --quiet ~/.ssh/id_rsa_robpc)
+fi
