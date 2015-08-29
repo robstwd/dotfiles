@@ -168,6 +168,7 @@ alias lrc='docker ps'                                                   # list r
 alias dpa='docker ps --all'
 alias rsc='docker rm $(docker ps --filter status=exited --quiet)'                  # remove stopped containers
 alias de='docker exec'
+alias din='docker inspect'
 
 # sourcing .bashrc
 alias sb='source ~/.bashrc'
