@@ -12,6 +12,7 @@
 STARTFGCOLOR='\e[0;34m'
 STARTBGCOLOR1="\e[0;41m"
 STARTBGCOLOR2="\e[42m"
+STARTBGCOLOR3="\e[44m"
 ENDCOLOR="\e[0m"
 
 # source various files; aliases etc
@@ -33,6 +34,10 @@ then
 elif [ $(uname -n) == 'alarmpi2' ]
 then
     export PS1="$STARTFGCOLOR$STARTBGCOLOR2 Raspberry Pi 2 > \u@\h \w $ENDCOLOR\n$ "
+# and a blue background for the raspberry pi 3
+elif [ $(uname -n) == 'alarmpi3' ]
+then
+    export PS1="$STARTBGCOLOR3 Raspberry Pi 3 > \u@\h \w $ENDCOLOR\n$ "
 fi
 
 # load private key into keychain
