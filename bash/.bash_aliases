@@ -62,11 +62,13 @@ alias keys="xev | grep -A2 --line-buffered '^KeyRelease' | sed -n '/keycode /s/^
 # misc
 alias ssr1="ssh raspi-1"
 alias ssr2="ssh raspi-2"
+alias ssr3="ssh raspi-3"
 alias fa='cat ~/.bash_aliases | grep --color=auto '
 alias c='clear'
 alias x='exit'
 alias hx='history'
 alias hxg='history | grep -i'
+alias ag='alias | grep -i'
 
 
 # xinit aliases
@@ -127,8 +129,8 @@ alias plo='pkg-list_true_orphans'              # list true package orphans
 # pacaur aliases
 alias pai='pacaur -y'                          # download, make and install target(s)
 alias pau='pacaur -u'                          # update AUR package(s)
-alias pak='pacaur -k'                          # check for AUR update(s)
-
+alias pak='pacaur -k'                          # check for AUR update(s), using pacaur
+alias cau='cower -v -u'                        # check for AUR update(s), using cower, verbose output
 
 # script aliases
 alias lpn="grep -F .pacnew /var/log/pacman.log | grep -v MERGED"
@@ -140,6 +142,7 @@ alias ts="scrot ~/Pictures/screenshots/squidbox/'%F-%H%M%S_scrot.png'"
 alias cs='du --max-depth=1 -h'                                          # check the size of the subfolders
 # alias cs2="du -s * | sort -rn | cut -f2- | xargs -d '\n' du -sh"      # alternative for sorting by file/folder size
 alias rsf='sudo rsync_systemd_files.sh'
+alias gyt='get_yt.sh '
 
 # python aliases
 alias nt='nosetests3'
@@ -147,15 +150,28 @@ alias pyc='wmname LG3D && pycharm'
 
 # build aliases
 alias smi='sudo make install'
-alias gyt='get_yt.sh '
 
 # mount raspberry pi 2 NAS drives with sshfs
-alias ssmi='sshfs rob@192.168.178.51:/mnt/Io mounts/Io -C -p 22'
-alias ssmc='sshfs rob@192.168.178.51:/mnt/Callisto mounts/Callisto -C -p 22'
-alias ssmg='sshfs rob@192.168.178.51:/mnt/Ganymede mounts/Ganymede -C -p 22'
-alias ssme='sshfs rob@192.168.178.51:/mnt/Europa mounts/Europa -C -p 22'
-alias smr1='sshfs rob@192.168.178.50:/ mounts/raspberrypi1 -C -p 22'
-alias smr2='sshfs rob@192.168.178.51:/ mounts/raspberrypi2 -C -p 22'
+alias ssmi='sshfs rob@192.168.178.51:/mnt/Io $HOME/mounts/Io -C -p 22'
+alias ssmiu='fusermount -u $HOME/mounts/Io'
+
+alias ssmc='sshfs rob@192.168.178.51:/mnt/Callisto $HOME/mounts/Callisto -C -p 22'
+alias ssmcu='fusermount -u $HOME/mounts/Callisto'
+
+alias ssmg='sshfs rob@192.168.178.51:/mnt/Ganymede $HOME/mounts/Ganymede -C -p 22'
+alias ssmgu='fusermount -u $HOME/mounts/Ganymede'
+
+alias ssme='sshfs rob@192.168.178.51:/mnt/Europa $HOME/mounts/Europa -C -p 22'
+alias ssmeu='fusermount -u $HOME/mounts/Europa'
+
+alias smr1='sshfs rob@192.168.178.50:/ $HOME/mounts/raspberrypi1 -C -p 22'
+alias smr1u='fusermount -u $HOME/mounts/raspberrypi1'
+
+alias smr2='sshfs rob@192.168.178.51:/ $HOME/mounts/raspberrypi2 -C -p 22'
+alias smr2u='fusermount -u $HOME/mounts/raspberrypi2'
+
+alias smr3='sshfs rob@192.168.178.52:/ $HOME/mounts/raspberrypi3 -C -p 22'
+alias smr3u='fusermount -u $HOME/mounts/raspberrypi3'
 
 # docker aliases
 alias dk='docker '
