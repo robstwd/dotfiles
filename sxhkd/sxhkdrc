@@ -112,12 +112,12 @@ super + ctrl + {1-9}
     # bspc {desktop -f,window -d} {1-9,0}
 
 # move focus onto a specified desktop
-super + {1-5,0}
-    bspc desktop --focus {1-5,0}
+super + {0-9,0}
+    bspc desktop --focus {0-9,0}
 
 # Send the selected window to the given desktop.
-super + shift + {1-5,0}
-    bspc window --to-desktop {1-5,0}
+super + shift + {0-9,0}
+    bspc window --to-desktop {0-9,0}
 
 # toggle on/off all window visibility
 super + z
@@ -264,7 +264,7 @@ alt + w
 alt + {_,shift + }x
     {xmahjongg,xfburn}
 alt + y
-    totem
+    vlc_tvheadend.sh
 alt + z
     urxvtc -geometry 95x30
 
@@ -335,7 +335,8 @@ super + F1
 super + F2
     sftpman-gtk
 
-# super + F3     # compton reload, defined elsewhere
+super + F3
+    vlc_tvheadend.sh
 
 # super + F4     # quit bspwm and friends, defined elsewhere
 
