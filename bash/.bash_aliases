@@ -3,6 +3,7 @@
 
 # this is sourced via the command:
 # $ source ~/.bash_aliases
+alias sb='source ~/.bashrc'
 
 
 # systemd aliases
@@ -28,6 +29,9 @@ alias ssd='sudo systemctl disable '
 alias sle='systemctl list-unit-files | grep enabled'
 alias slt='systemctl list-timers'
 alias stv='sudo systemctl start tvheadend'
+alias sptv='sudo systemctl stop tvheadend'
+alias stm='sudo systemctl start minidlna'
+alias stpm='sudo systemctl stop minidlna'
 
 # systemd --user aliases
 alias startu='systemctl --user start '
@@ -63,7 +67,6 @@ alias keys="xev | grep -A2 --line-buffered '^KeyRelease' | sed -n '/keycode /s/^
 alias ssr1="ssh raspi-1"
 alias ssr2="ssh raspi-2"
 alias ssr3="ssh raspi-3"
-alias fa='cat ~/.bash_aliases | grep --color=auto '
 alias c='clear'
 alias x='exit'
 alias hx='history'
@@ -72,15 +75,15 @@ alias ag='alias | grep -i'
 
 
 # xinit aliases
-alias stm='xinit monsterwm_run'
-alias sta='xinit awesome'
-alias sto='xinit openbox-session'
-alias std='xinit dwm-personalised'
-alias stx='xinit xbmc'
-alias stdm='xinit dminiwm_start'
-alias sts='xinit snapwm_start'
-alias ste='xinit enlightenment_start'
-alias sti='xinit i3'
+#alias stm='xinit monsterwm_run'
+#alias sta='xinit awesome'
+#alias sto='xinit openbox-session'
+#alias std='xinit dwm-personalised'
+#alias stx='xinit xbmc'
+#alias stdm='xinit dminiwm_start'
+#alias sts='xinit snapwm_start'
+#alias ste='xinit enlightenment_start'
+#alias sti='xinit i3'
 alias sx='startx'
 
 
@@ -140,13 +143,7 @@ alias rr='rsync_to_raspi.py'
 alias pq='pushover_quotes.py'
 alias ts="scrot ~/Pictures/screenshots/squidbox/'%F-%H%M%S_scrot.png'"
 alias cs='du --max-depth=1 -h'                                          # check the size of the subfolders
-# alias cs2="du -s * | sort -rn | cut -f2- | xargs -d '\n' du -sh"      # alternative for sorting by file/folder size
-alias rsf='sudo rsync_systemd_files.sh'
 alias gyt='get_yt.sh '
-
-# python aliases
-alias nt='nosetests3'
-alias pyc='wmname LG3D && pycharm'
 
 # build aliases
 alias smi='sudo make install'
@@ -185,6 +182,3 @@ alias dpa='docker ps --all'
 alias rsc='docker rm $(docker ps --filter status=exited --quiet)'                  # remove stopped containers
 alias de='docker exec'
 alias din='docker inspect'
-
-# sourcing .bashrc
-alias sb='source ~/.bashrc'
