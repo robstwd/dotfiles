@@ -52,11 +52,13 @@ bspc config urgent_border_color           "#F9A299"     # Color o
 ########################
 
 # BenQ E2400HD monitor, connected via DVI
-bspc monitor   DVI-I-0 --reset-desktops a b c                  # add 3 desktops to the VGA monitor
+#~ bspc monitor   DVI-I-0 --reset-desktops a b c                  # add 3 desktops to the VGA monitor
+bspc monitor   DVI-I-0 --reset-desktops 0 1 2 3 4                   # add 3 desktops to the VGA monitor
 bspc config -m DVI-I-0 top_padding 17                          # and add a top padding of 10 px for bar
 
 # BenQ GW2765HT monitor, connected via HDMI
-bspc monitor   HDMI-0 --reset-desktops 1 2 3 4 5         # add 5 desktops to the BenQ GW2765HT monitor
+#~ bspc monitor   HDMI-0 --reset-desktops 1 2 3 4 5         # add 5 desktops to the BenQ GW2765HT monitor
+bspc monitor   HDMI-0 --reset-desktops 5 6 7 8 9         # add 5 desktops to the BenQ GW2765HT monitor
 bspc config -m HDMI-0 top_padding 15                     # and add a top padding of 10 px for bar
 
 # move the focus to the main monitor
