@@ -29,15 +29,15 @@ bind '"\t":menu-complete'
 # for the raspberry pi 1, give a red background
 if [ $(uname -n) == 'alarmpi1' ]
 then
-    export PS1="$STARTFGCOLOR$STARTBGCOLOR1 Raspberry Pi 1 > \u@\h \w $ENDCOLOR\n$ "
+    export PS1="\n$STARTFGCOLOR$STARTBGCOLOR1 Raspberry Pi 1 > \u@\h \w $ENDCOLOR\n$ "
 # and a green background for the raspberry pi 2
 elif [ $(uname -n) == 'alarmpi2' ]
 then
-    export PS1="$STARTFGCOLOR$STARTBGCOLOR2 Raspberry Pi 2 > \u@\h \w $ENDCOLOR\n$ "
+    export PS1="\n$STARTFGCOLOR$STARTBGCOLOR2 Raspberry Pi 2 > \u@\h \w $ENDCOLOR\n$ "
 # and a blue background for the raspberry pi 3
 elif [ $(uname -n) == 'alarmpi3' ]
 then
-    export PS1="$STARTBGCOLOR3 Raspberry Pi 3 > \u@\h \w $ENDCOLOR\n$ "
+    export PS1="\n$STARTBGCOLOR3 Raspberry Pi 3 > \u@\h \w $ENDCOLOR\n$ "
 fi
 
 # load private key into keychain
