@@ -261,8 +261,12 @@ alt + {_,shift + }v
     {vlc,virtualbox}
 alt + w
     midori
-alt + {_,shift + }x
-    {xmahjongg,xfburn}
+alt + x
+    bspc config -m HDMI-0 bottom_padding 22; \
+    xfce4-panel
+alt + shift + x
+    bspc config -m HDMI-0 bottom_padding 0; \
+    killall xfce4-panel
 alt + y
     vlc_tvheadend.sh
 alt + z
