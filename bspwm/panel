@@ -15,11 +15,9 @@ mkfifo "$PANEL_FIFO"
 
 bspc control --subscribe > "$PANEL_FIFO" &
 xtitle -sf 'T%s' > "$PANEL_FIFO" &
-#~ bspwm_status > "$PANEL_FIFO" &
-clock -sf 'S%a %d %b %H:%M' > "$PANEL_FIFO" &
+bspwm_status2 > "$PANEL_FIFO" &
+#~ clock -sf 'S%a %d %b %H:%M' > "$PANEL_FIFO" &
 
-#~ cat "$PANEL_FIFO" | panel_bar_current | bar -f "-*-terminus-medium-r-*-*-16-*-*-*-*-*-*-*" -u 2 &
-#~ cat "$PANEL_FIFO" | panel_bar_current | bar -f "-bitstream-*-medium-r-*-*-*-*-*-*-*-*-*-*" -u 2 &
 cat "$PANEL_FIFO" | panel_bar_current | bar -f "-*-dejavu sans mono for powerline-medium-r-normal-*-17-*-*-*-*-*-*-*" -u 2 &
 
 wait
