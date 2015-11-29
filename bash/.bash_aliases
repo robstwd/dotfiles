@@ -85,6 +85,7 @@ alias ag='alias | grep -i'
 #alias ste='xinit enlightenment_start'
 #alias sti='xinit i3'
 alias sx='startx'
+alias sxm='startx /usr/local/bin/monsterwm'
 
 
 # start wm's in additional tty(7)
