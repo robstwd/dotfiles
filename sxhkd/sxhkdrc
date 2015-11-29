@@ -8,9 +8,6 @@
     # bspc quit
 
 # close focused window
-super + w
-    bspc window --close
-
 alt + {_,shift + }Escape
     bspc window --{close,kill}
 
@@ -339,14 +336,11 @@ super + F1
 super + F2
     sftpman-gtk
 
-super + F3
-    vlc_tvheadend.sh
+# super + F3
 
 # super + F4     # quit bspwm and friends, defined elsewhere
 
-# toggle the mouse polling setting 0 <=> 50
-super + F5
-    sudo mousepoll_toggle.sh
+# super + F5
 
 super + F6
   bspc config -d focused top_padding 0; \
@@ -360,18 +354,16 @@ super + F7
   bspc config -d focused border_width 2; \
   bspc config -d focused window_gap 12
 
-super + F8
-   plank
+# super + F8
 
-super + F9
-    python-mounts.py
+# super + F9
 
 super + F10
     rsync_to_raspi.py
 
 # super + F11
 
-# super + F12
+# super + F12 # quit
 
 ########################
 ## Exiting:           ##
@@ -434,3 +426,6 @@ super + alt + button1
 # new floating urxvt window for small commands
 super + alt + z
     bspc rule -a \* --one-shot floating=true follow=on && urxvtc -geometry 55x5+8+987
+    
+super + F3
+    bspc rule -a \* --one-shot floating=true sticky=true follow=on && urxvtc -e internet-status-loop.sh -geometry 55x5+8+987
