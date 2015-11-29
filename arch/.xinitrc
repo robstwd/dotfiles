@@ -26,6 +26,11 @@ numlockx &
 # start urxvt daemon
 urxvtd -q -f -o
 
+# start the gnome-keyring-daemon
+# https://wiki.archlinux.org/index.php/GNOME_Keyring#xinitrc_method
+eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
+export SSH_AUTH_SOCK
+
 # run bspwm
 exec bspwm_run
 # exec twm
