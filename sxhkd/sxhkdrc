@@ -229,7 +229,7 @@ alt + {_,shift + }g
 alt + {_,shift + }h
     {hugin,ghb}
 alt + {_,shift + }i
-    {mirage,shotwell}
+    {inox,mirage}
 alt + j
     kpat
 alt + {_,shift + }k
@@ -237,7 +237,7 @@ alt + {_,shift + }k
 alt + l
     leafpad
 alt + {_,shift + }m
-    {dmenu_run -fn '-*-*-medium-r-normal-*-*-*-*-*-*-100-*-*' -p 'run:',meld}
+    {meld,midori}
 alt + {_,shift + }n
     {nitrogen,neverball}
 alt + {_,shift + }o
@@ -250,14 +250,14 @@ alt + r
     remmina
 alt + {_,shift + }s
     {xrandr --output DVI-I-0 --off && steam,skype}
-alt + {_,shift + }t
-    {transmission-gtk,~/bin/teamviewer_start.sh}
+alt + {_,shift + ,ctrl +}t
+    {totem,transmission-gtk,~/bin/teamviewer_start.sh}
 alt + u
     kshisen
 alt + {_,shift + }v
     {vlc,virtualbox}
 alt + w
-    midori
+    inox
 alt + x
     bspc config -m HDMI-0 bottom_padding 22; \
     xfce4-panel
@@ -397,11 +397,11 @@ super + alt + {shift + ,_}Escape
 
 # playing with chained chords
 # super + a ; v
-    # vlc
+#    # vlc
 
 # one key to cycle through multiple actions
 # super + x
-    # echo {a-c}
+#    # echo {a-c}
 
 # record history
 super + {o,i}
@@ -429,3 +429,6 @@ super + alt + z
     
 super + F3
     bspc rule -a \* --one-shot floating=true sticky=true follow=on && urxvtc -e internet-status-loop.sh -geometry 55x5+8+987
+    
+super + ctrl + m
+    dmenu_run -fn '-*-*-medium-r-normal-*-*-*-*-*-*-100-*-*' -p 'run:'
