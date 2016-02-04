@@ -10,41 +10,42 @@
 ########################
 
 # geometry
-bspc config border_width          2
-bspc config window_gap            12
-bspc config split_ratio           0.52
+bspc config border_width            6
+bspc config window_gap              10
+bspc config split_ratio             0.5
 
 # settings
-bspc config borderless_monocle true
-bspc config gapless_monocle true
-bspc config focus_follows_pointer true            # Focus the window under the pointer.
-bspc config auto_alternate true                   # Interpret two consecutive identical use messages as an alternate message.
-bspc config auto_cancel true                      # Interpret two consecutive identical presel messages as a cancel message.
-bspc config apply_floating_atom true              # Set the value of the _BSPWM_FLOATING_WINDOW atom of each window according to its floating state.
-bspc config history_aware_focus true              # Give priority to the focus history when focusing nodes.
-bspc config pointer_follows_monitor false         # When focusing a monitor, put the pointer at its center.
-bspc config ignore_ewmh_focus true                # Ignore EWMH requests to focus a window.
+bspc config borderless_monocle      true
+bspc config gapless_monocle         true
+bspc config focus_follows_pointer   true   # Focus the window under the pointer
+bspc config auto_alternate          true   # Interpret two consecutive identical use messages as an alternate message.
+bspc config auto_cancel             true   # Interpret two consecutive identical presel messages as a cancel message.
+bspc config apply_floating_atom     true   # Set the value of the _BSPWM_FLOATING_WINDOW atom of each window according to its floating state.
+bspc config history_aware_focus     true   # Give priority to the focus history when focusing nodes.
+bspc config pointer_follows_monitor false  # When focusing a monitor, put the pointer at its center.
+bspc config ignore_ewmh_focus       true   # Ignore EWMH requests to focus a window.
 
 # colours
 bspc config focused_border_color          "#000ac9"     # Color of the border of a focused window of a focused monitor.
-bspc config active_border_color           "#5C5955"     # Color of the border of a focused window of an unfocused monitor.
+#~ bspc config active_border_color           "#5C5955"     # Color of the border of a focused window of an unfocused monitor.
 
-bspc config normal_border_color           "#34322E"     # Color of the border of an unfocused window.
-bspc config presel_border_color           "#F6F9FF"     # Color of the presel message feedback.
+#~ bspc config normal_border_color           "#34322E"     # Color of the border of an unfocused window.
+#~ bspc config presel_border_color           "#F6F9FF"     # Color of the presel message feedback.
 
-bspc config focused_locked_border_color   "#CFB776"     # Color of the border of a focused locked window of a focused monitor.
-bspc config active_locked_border_color    "#5C5955"     # Color of the border of a focused locked window of an unfocused monitor.
-bspc config normal_locked_border_color    "#34322E"     # Color of the border of an unfocused locked window.
+#~ bspc config focused_locked_border_color   "#CFB776"     # Color of the border of a focused locked window of a focused monitor.
+#~ bspc config active_locked_border_color    "#5C5955"     # Color of the border of a focused locked window of an unfocused monitor.
+#~ bspc config normal_locked_border_color    "#34322E"     # Color of the border of an unfocused locked window.
 
-bspc config focused_sticky_border_color   "#E3A5DA"     # Color of the border of a focused sticky window of a focused monitor.
-bspc config active_sticky_border_color    "#5C5955"
-bspc config normal_sticky_border_color    "#34322E"     # Color of the border of an unfocused sticky window.
+#~ bspc config focused_sticky_border_color   "#E3A5DA"     # Color of the border of a focused sticky window of a focused monitor.
+#~ bspc config active_sticky_border_color    "#5C5955"
+#~ bspc config active_sticky_border_color    "#5C5955"
+#~ bspc config normal_sticky_border_color    "#34322E"     # Color of the border of an unfocused sticky window.
 
-bspc config focused_private_border_color  "#42CAD9"
-bspc config active_private_border_color   "#5C5955"
-bspc config normal_private_border_color   "#34322E"
+#~ bspc config focused_private_border_color  "#42CAD9"
+#~ bspc config active_private_border_color   "#5C5955"
+#~ bspc config normal_private_border_color   "#34322E"
 
-bspc config urgent_border_color           "#F9A299"     # Color of the border of an urgent window.
+#~ bspc config urgent_border_color           "#F9A299"     # Color of the border of an urgent window.
 
 
 ########################
@@ -52,14 +53,14 @@ bspc config urgent_border_color           "#F9A299"     # Color o
 ########################
 
 # BenQ E2400HD monitor, connected via DVI
-#~ bspc monitor   DVI-I-0 --reset-desktops a b c                  # add 3 desktops to the VGA monitor
-bspc monitor   DVI-I-0 --reset-desktops 0 1 2 3 4                   # add 3 desktops to the VGA monitor
-bspc config -m DVI-I-0 top_padding 17                          # and add a top padding of 10 px for bar
+#~ bspc monitor   DVI-I-0 --reset-desktops a b c            # add 3 desktops to the VGA monitor
+bspc monitor   DVI-I-0 --reset-desktops 0 1 2 3 4           # add 3 desktops to the VGA monitor
+bspc config -m DVI-I-0 top_padding 17                       # and add a top padding of 10 px for bar
 
 # BenQ GW2765HT monitor, connected via HDMI
 #~ bspc monitor   HDMI-0 --reset-desktops 1 2 3 4 5         # add 5 desktops to the BenQ GW2765HT monitor
-bspc monitor   HDMI-0 --reset-desktops 5 6 7 8 9         # add 5 desktops to the BenQ GW2765HT monitor
-bspc config -m HDMI-0 top_padding 15                     # and add a top padding of 10 px for bar
+bspc monitor   HDMI-0 --reset-desktops 5 6 7 8 9            # add 5 desktops to the BenQ GW2765HT monitor
+bspc config -m HDMI-0 top_padding 24                        # and add a top padding of 10 px for bar
 
 # move the focus to the main monitor
 bspc monitor -f HDMI-0
