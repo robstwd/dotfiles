@@ -32,5 +32,14 @@ eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 export SSH_AUTH_SOCK
 
 # run bspwm
-exec bspwm_run
+#exec bspwm_run
 # exec twm
+session=${1:-bspwm}
+
+case $session in
+    bspwm             ) exec bspwm_run;;
+    i3|i3wm           ) exec i3;;
+    monster|monsterwm ) exec monsterwm;;
+    # No known session, try to run it as command
+    *) exec $1;;
+esac
