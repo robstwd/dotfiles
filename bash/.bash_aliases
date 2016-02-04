@@ -59,7 +59,7 @@ alias uk='fusermount -u ~/KindleFire'
 # terminal apps
 alias ht='htop'
 alias cuc='cucumber'
-alias rs='rspec'
+#~ alias rs='rspec'
 alias keys="xev | grep -A2 --line-buffered '^KeyRelease' | sed -n '/keycode /s/^.*keycode \([0-9]*\).* (.*, \(.*\)).*$/\1 \2/p'"
 
 
@@ -67,11 +67,14 @@ alias keys="xev | grep -A2 --line-buffered '^KeyRelease' | sed -n '/keycode /s/^
 alias ssr1="ssh raspi-1"
 alias ssr2="ssh raspi-2"
 alias ssr3="ssh raspi-3"
+alias ssr3w="ssh raspi-3w"
 alias c='clear'
 alias x='exit'
 alias hx='history'
 alias hxg='history | grep -i'
 alias ag='alias | grep -i'
+alias v='vim'
+alias sv='sudo vim'
 
 
 # xinit aliases
@@ -83,19 +86,19 @@ alias ag='alias | grep -i'
 #alias stdm='xinit dminiwm_start'
 #alias sts='xinit snapwm_start'
 #alias ste='xinit enlightenment_start'
-#alias sti='xinit i3'
-alias sx='startx'
-alias sxm='startx /usr/local/bin/monsterwm'
+alias sxi='xinit i3'
+alias sxb='xinit'
+alias sxm='xinit monsterwm'
 
 
 # start wm's in additional tty(7)
-alias sx7='xinit xbmc -- :1 vt7'
-alias so7='xinit openbox-session -- :1 vt7'
-alias sd7='xinit dwm-personalised -- :1 vt7'
-alias se7='xinit enlightenment_start -- :1 vt7'
-alias si7='xinit i3 -- :1 vt7'
-alias sa7='xinit awesome -- :1 vt7'
-alias ss7='xinit /usr/bin/steam -- :1 vt7'
+#~ alias sx7='xinit xbmc -- :1 vt7'
+#~ alias so7='xinit openbox-session -- :1 vt7'
+#~ alias sd7='xinit dwm-personalised -- :1 vt7'
+#~ alias se7='xinit enlightenment_start -- :1 vt7'
+#~ alias si7='xinit i3 -- :1 vt7'
+#~ alias sa7='xinit awesome -- :1 vt7'
+#~ alias ss7='xinit /usr/bin/steam -- :1 vt7'
 
 
 # git aliases
@@ -145,6 +148,10 @@ alias pq='pushover_quotes.py'
 alias ts="scrot ~/Pictures/screenshots/squidbox/'%F-%H%M%S_scrot.png'"
 alias cs='du --max-depth=1 -h'                                          # check the size of the subfolders
 alias gyt='get_yt.sh '
+alias rs='ruby-snmp.rb'
+alias rh='rsync_home.py'
+alias rp='rsync_pictures.py'
+alias is='internet-status.sh'
 
 # build aliases
 alias smi='sudo make install'
