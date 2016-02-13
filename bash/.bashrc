@@ -41,6 +41,7 @@ then
 fi
 
 # load private key into keychain
+# http://www.funtoo.org/OpenSSH_Key_Management,_Part_2
 if [ $(uname -n) == 'squidbox' ]
 then
     eval $(keychain --eval -Q --quiet ~/.ssh/id_rsa_robpc)
