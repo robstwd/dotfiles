@@ -64,6 +64,7 @@ alias keys="xev | grep -A2 --line-buffered '^KeyRelease' | sed -n '/keycode /s/^
 
 
 # misc
+alias ssq="ssh squidbox"
 alias ssr1="ssh raspi-1"
 alias ssr2="ssh raspi-2"
 alias ssr3="ssh raspi-3"
