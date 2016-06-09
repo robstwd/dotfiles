@@ -137,7 +137,7 @@ while read -r line ; do
   esac
   
   # use this to determine the wm_infos string contents
-  # echo ${wm_infos} > wm_info
+   echo ${wm_infos} > wm_info
 
 
   # clean the wm_infos string
@@ -153,4 +153,3 @@ while read -r line ; do
   printf "%s\n" "%{l}%{FCOLOR5}${dvi_desk_info}%{F-} %{S1}%{l}%{FCOLOR5}${hdmi_desk_info} %{F-}%{F$COLOR4} $title%{F-} %{r}%{F$COLOR4}$sys_infos%{F-} "
 
 done
-
