@@ -68,7 +68,6 @@ alias ssq="ssh squidbox"
 alias ssr1="ssh raspi-1"
 alias ssr2="ssh raspi-2"
 alias ssr3="ssh raspi-3"
-alias ssr3w="ssh raspi-3w"
 alias c='clear'
 alias x='exit'
 alias hx='history'
@@ -173,10 +172,10 @@ alias ssmeu='fusermount -u $HOME/mounts/Europa'
 alias smr1='sshfs rob@192.168.178.50:/ $HOME/mounts/raspberrypi1 -C -p 22'
 alias smr1u='fusermount -u $HOME/mounts/raspberrypi1'
 
-alias smr2='sshfs rob@192.168.178.51:/ $HOME/mounts/raspberrypi2 -C -p 22'
+alias smr2='sshfs rob@192.168.178.51:/ $HOME/mounts/raspberrypi2 -C -p 39906'
 alias smr2u='fusermount -u $HOME/mounts/raspberrypi2'
 
-alias smr3='sshfs rob@192.168.178.52:/ $HOME/mounts/raspberrypi3 -C -p 22'
+alias smr3='sshfs rob@192.168.178.54:/ $HOME/mounts/raspberrypi3 -C'
 alias smr3u='fusermount -u $HOME/mounts/raspberrypi3'
 
 # docker aliases
