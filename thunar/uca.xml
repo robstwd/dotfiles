@@ -93,4 +93,13 @@
 	<directories/>
 	<text-files/>
 </action>
+<action>
+	<icon></icon>
+	<name>Annotate webcam pics</name>
+	<unique-id>1456565890316466-1</unique-id>
+	<command>im_annotate2.sh %d</command>
+	<description></description>
+	<patterns>*</patterns>
+	<image-files/>
+</action>
 </actions>
