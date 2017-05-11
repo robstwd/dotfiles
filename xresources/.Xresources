@@ -1,4 +1,4 @@
-! reload with $ xrdb ~/.Xresources
+! reload with $ xrdb -load ~/.Xresources
 
 
 ! URxvt*termName:                       string
@@ -101,7 +101,7 @@ URxvt*buffered: true
 ! URxvt*externalBorder:                 number
 ! URxvt*internalBorder:                 number
 ! URxvt*borderLess:                     boolean
-! URxvt*lineSpace:                      number
+URxvt.lineSpace: 1
 ! URxvt*letterSpace:                    number
 ! URxvt*skipBuiltinGlyphs:              boolean
 ! URxvt*pointerBlankDelay:              number
@@ -167,11 +167,11 @@ rofi.ssh-set-title:       true
 rofi.location:            2
 rofi.sidebar-mode:        false
 
-rofi.fg:                  #ffffff
-rofi.bg:                  #000000
-rofi.hlfg:                #FFFFFF
-rofi.hlbg:                #33b5e5
-rofi.bc:                  #000ac9
+! rofi.fg:                  #ffffff
+! rofi.bg:                  #000000
+! rofi.hlfg:                #FFFFFF
+! rofi.hlbg:                #33b5e5
+! rofi.bc:                  #000ac9
 rofi.disable-history:     false
 rofi.levenshtein-sort:    true
 rofi.switchers:           window,run,ssh
@@ -273,3 +273,11 @@ rofi.switchers:           window,run,ssh
 ! rofi.key-run:                        
 ! rofi.key-ssh:                        
 
+! ------------------------------------------------------------------------------
+! ROFI Color theme
+! ------------------------------------------------------------------------------
+rofi.color-enabled: true
+rofi.color-window: #002b37, #002b37, #003642
+rofi.color-normal: #002b37, #819396, #003643, #008ed4, #ffffff
+rofi.color-active: #002b37, #008ed4, #003643, #008ed4, #66c6ff
+rofi.color-urgent: #002b37, #da4281, #003643, #008ed4, #890661
