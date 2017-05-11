@@ -4,109 +4,84 @@
 ## Internal (bspwm):  ##
 ########################
 
-# super + alt + Escape
-    # bspc quit
-
-# close focused window
+# close & kill focused node
 alt + {_,shift + }Escape
-    bspc window --{close,kill}
+    bspc node --{close,kill}
 
 # cycle the layout of the current desktop (monocle|tiled)
-super + t
-    bspc desktop --layout next
+#~ super + t
+    #~ bspc desktop --layout next
 
 # balance windows; ie adjust the split ratios of the tree of the selected desktop so that all windows occupy the same area.
 super + b
-    bspc desktop --balance
+    bspc node @focused:/ --balance
 
-# Set the given state for the selected window - floating, fullscreen, locked, sticky & private
-super + {s,f,x,k,a}
-    bspc window --toggle {floating,fullscreen,locked,sticky,private}
+# toggle floating-tiled
+super + f
+    if [ -z "$(bspc query -N -n focused.floating)" ]; then \                    
+        bspc node focused -t floating; \                                        
+    else \                                                                      
+        bspc node focused -t tiled; \                                           
+    fi
 
-# move focus to last used window or desktop
+# toggle fullscreen-tiled
+super + s
+    if [ -z "$(bspc query -N -n focused.fullscreen)" ]; then \                    
+        bspc node focused -t fullscreen; \                                        
+    else \                                                                      
+        bspc node focused -t tiled; \                                           
+    fi
+
+# toggle pseudo-tiled
+super + p
+    if [ -z "$(bspc query -N -n focused.pseudo_tiled)" ]; then \                    
+        bspc node focused -t pseudo_tiled; \                                        
+    else \                                                                      
+        bspc node focused -t tiled; \                                           
+    fi
+# set the node flags
+super + {x,k,a}
+    bspc node -g {locked,sticky,private}
+
+# move focus to last used node or desktop
 super + {grave,Tab}
-    bspc {window,desktop} --focus last
+    bspc {node,desktop} --focus last
 
-# Swap the selected window with the last window
+# Swap the selected node with the last node
 super + apostrophe
-    bspc window --swap last
+    bspc node --swap last
 
-# Transplant the selected window to the given window
-# doesn't seem to do anything
-super + y
-    bspc window -w last.manual
-
-# Swap the selected window with the biggest window on the desktop.
+# Swap the selected node with the biggest node on the desktop
 super + m
-    bspc window --swap biggest
+    bspc node --swap biggest
 
-# swap the current window with the one that is next {Up,Right,Left,Down}
-super + shift + {h,j,k,l}
-    bspc window --swap {left,down,up,right}
-
+# swap the current node with the one that is next {Up,Right,Left,Down}
 super + alt + ctrl + {Left,Down,Up,Right}
-    bspc window --swap {left,down,up,right}
+    bspc node --swap {west,south,north,east}
 
-# move focus to next window that is {Up,Right,Left,Down}
+# move focus to next node that is {Up,Right,Left,Down}
 super + alt + {Up,Right,Left,Down}
-    bspc window --focus {up,right,left,down}
+    bspc node --focus {north,east,west,south}
 
-# works, but not used
-# super + {_,shift + }{h,j,k,l}
-    # bspc window -{focus,swap} {left,down,up,right}
-
-# focus next or previous window (and cycle)
+# focus next or previous node (and cycle)
 super + {_,shift + }c
-    bspc window --focus {next,prev}
-
-# Circulate the windows of the selected desktop (must have more than 1)
-super + {comma,period}
-    bspc desktop --circulate {backward,forward}
+    bspc node --focus {next,prev}
 
 # move to next/previous desktop
-# 1) using square bracket []
-super + bracket{left,right}
-    bspc desktop --focus {prev,next}
-
-# 2) using arrow keys
 super + {Left,Right}
     bspc desktop --focus {prev,next}
 
-# manually preselect the splitting area of the selected window
-super + ctrl + {h,j,k,l}
-    bspc window --presel {left,down,up,right}
-
-# manually preselect the splitting area of the selected window; use a chord
+# manually preselect the splitting area of the selected node
 super + ctrl + {Up,Right,Left,Down}
-    bspc window --presel {up,right,left,down}
+    bspc node -p {north,east,west,south}
 
-# cancel this manual preselection
-super + ctrl + {_,shift + }space
-    bspc {window --presel cancel,desktop -c}
+# cancel the preselection for the focused node
+super + ctrl + space
+    bspc node -p cancel
 
-#+ cancel presel and switch back to automatic mode
-super + BackSpace
-    bspc window --presel cancel
-
-# one shot rules, preselect next window as...
-super + alt + {s,f,x,X,m}
-    rulc -a true '{floating,fullscreen,locked,sticky,private}=on' 'duration=1'
-
-# Push the splitting ratio of the edge located in the given direction in relation to the selected window.
-super + alt + {h,j,k,l}
-    bspc window --edge {left,down,up,right} push
-
-# Pull the splitting ratio of the edge located in the given direction in relation to the selected window.
-super + alt + shift + {h,j,k,l}
-    bspc window --edge {right,up,down,left} pull
-
-# Set the splitting ratio of the selected window (0 < RATIO < 1).
-super + ctrl + {1-9}
-    bspc window --ratio 0.{1-9}
-
-# moved these 2 parts into 2 separate bindings
-# super + {_,shift + }{1-9,0}
-    # bspc {desktop -f,window -d} {1-9,0}
+# cancel the preselection for the focused desktop
+super + ctrl + shift + space
+    bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
 
 # move focus onto a specified desktop
 super + {0-9,0}
@@ -114,47 +89,19 @@ super + {0-9,0}
 
 # Send the selected window to the given desktop.
 super + shift + {0-9,0}
-    bspc window --to-desktop {0-9,0}
+    bspc node --to-desktop {0-9,0}
 
-# toggle on/off all window visibility
-super + z
-    bspc control --toggle-visibility
-
-# switch monitors
-super + Next
-    bspc monitor --focus next
-
-# adjust window gaps
-alt + KP_{Add,Subtract}
-    wg=$(bspc config -d focused window_gap); \
-    bspc config -d focused window_gap $((wg {+,- (wg >= 3) *} 3))
-
-#+ rotate all windows completely/forward
+# rotate all nodes completely/forward
 super + {_,shift +,control +} r
-    bspc desktop --rotate {90,180,270}
+    bspc node @focused:/ --rotate {90,180,270}
+
+# Circulate the nodes of the selected desktop (must have more than 1)
+super + {comma,period}
+    bspc node @focused:/ --circulate {backward,forward}
 
 #+ flip layout
 super + {_,shift +} v
-    bspc desktop --flip {vertical,horizontal}
-
-#+ cycle to next/prev occupied desktop
-super + {n,p}
-    bspc desktop --focus {next,prev}.occupied
-
-# adjust border width
-ctrl + KP_{Add,Subtract}
-    bw=$(bspc config -w focused border_width); \
-    bspc config -w focused border_width $(($bw {+,- ($bw >= 1) *} 1))
-
-# toggle pseudo-tiled window
-super + ctrl + f
-    bspc window --toggle pseudo_tiled
-
-# toggle floating desktop
-# this makes all forthcoming windows rendered in floating mode (or vice versa)
-# Modifying the floating state of a desktop doesn't change the floating state of the existing windows.
-super + shift + f
-    bspc desktop --toggle floating
+    bspc node @focused:/ --flip {vertical,horizontal}
 
 ########################
 ## Mouse related:     ##
@@ -169,7 +116,6 @@ super + button{1-3}
     bspc pointer --grab {move,resize_side,resize_corner}
 
 # Pass the pointer root coordinates for the current pointer action
-# no idea what this one does!!
 super + !button{1-3}
     bspc pointer -t %i %i
 
@@ -177,10 +123,6 @@ super + !button{1-3}
 # terminate the current pointer action.
 super + @button{1-3}
     bspc pointer --ungrab
-
-# toggle focus_follows_pointer
-super + alt + p
-    bspc config focus_follows_pointer {true,false}
 
 # rotate desktops with mouse wheel
 super + button{4,5}
@@ -192,86 +134,226 @@ super + ctrl + button{4,5}
 
 # focus next or previous window (and cycle) with mouse wheel
 super + alt + button{4,5}
-    bspc window --focus {next,prev}
+    bspc node --focus {next,prev}
 
 ########################
 ## External:          ##
 ########################
 
-# make sxhkd reload its configuration files:
+# make sxhkd reload its configuration files
 super + Escape
     pkill -USR1 -x sxhkd
-
-# make compton reload its configuration files:
-super + F3
-    pkill -USR1 -x compton
 
 ########################
 ## Applications:      ##
 ########################
 
-# applications
-alt + {_,shift + }a
-    {urxvt -e alsamixer,asunder}
-alt + {_,shift + }b
+alt + {_,shift + ,ctrl + }a
+    {urxvt -e alsamixer,asunder,}
+    
+alt + {_,shift + ,ctrl + }b
 # https://bbs.archlinux.org/viewtopic.php?id=101201
-    {banshee,dbus-launch brasero}
-alt + {_,shift + }c
-    {chromium,calibre}
-alt + {_,shift + }d
-    {digikam,darktable}
-alt + {_,shift + }e
-    {easytag,google-earth}
-alt + {_,shift + }f
-    {thunar,filezilla}
-alt + {_,shift + }g
-    {geany,gramps}
-alt + {_,shift + }h
-    {hugin,ghb}
-alt + {_,shift + }i
-    {inox,mirage}
-alt + j
-    kpat
-alt + {_,shift + }k
-    {kodi,klavaro}
-alt + l
-    leafpad
-alt + {_,shift + }m
-    {meld,midori}
-alt + {_,shift + }n
-    {nitrogen,neverball}
-alt + {_,shift + }o
-    {libreoffice,openshot}
-alt + {_,shift + }p
-    {keepassx,pavucontrol}
-alt + q
-    kmahjongg
-alt + r
-    remmina
-alt + {_,shift + }s
-    {xrandr --output DVI-I-0 --off && steam,skype}
+    {banshee,dbus-launch brasero,}
+    
+alt + {_,shift + ,ctrl + }c
+    {chromium,calibre,}
+    
+alt + {_,shift + ,ctrl + }d
+    {digikam,,}
+    
+alt + {_,shift + ,ctrl + }e
+    {easytag,google-earth,}
+    
+alt + {_,shift + ,ctrl + }f
+    {thunar,filezilla,firefox}
+    
+alt + {_,shift + ,ctrl + }g
+    {geany,gramps,}
+    
+alt + {_,shift + ,ctrl + }h
+    {hugin,ghb,}
+    
+alt + {_,shift + ,ctrl + }i
+    {mirage,,}
+    
+alt + {_,shift + ,ctrl + }j
+    {kpat,,}
+    
+alt + {_,shift + ,ctrl + }k
+    {kodi,klavaro,kshisen}
+    
+alt + {_,shift + ,ctrl + }l
+    {leafpad,,}
+
+alt + {_,shift + ,ctrl + }m
+    {meld,midori,dmenu_run -fn '-*-*-medium-r-normal-*-*-*-*-*-*-100-*-*' -p 'run:'}
+    
+alt + {_,shift + ,ctrl + }n
+    {nitrogen,neverball,}
+    
+alt + {_,shift + ,ctrl + }o
+    {libreoffice,openshot,}
+    
+alt + {_,shift + ,ctrl + }p
+    {keepassx,pavucontrol,passmenu}
+    
+alt + {_,shift + ,ctrl + }q
+    {kmahjongg,,}
+    
+alt + {_,shift + ,ctrl + }r
+    {remmina,,}
+    
+alt + {_,shift + ,ctrl + }s
+    {xrandr --output DVI-I-0 --off && steam,stellarium,sftpman-gtk}
+    
 alt + {_,shift + ,ctrl +}t
     {totem,transmission-gtk,~/bin/teamviewer_start.sh}
-alt + u
-    kshisen
-alt + {_,shift + }v
-    {vlc,virtualbox}
-alt + w
-    inox
-alt + x
-    bspc config -m HDMI-0 bottom_padding 22; \
-    xfce4-panel
+    
+alt + {_,shift + ,ctrl +}u
+    {,,}
+    
+alt + {_,shift + ,ctrl + }v
+    {vlc,virtualbox,}
+    
+alt + {_,shift + ,ctrl + }w
+    {inox,,}
+    
+alt + {_,shift + ,ctrl + }x
+    {bspc config -m HDMI-0 bottom_padding 22; xfce4-panel,,}
+    
 alt + shift + x
-    bspc config -m HDMI-0 bottom_padding 0; \
-    killall xfce4-panel
-alt + y
-    vlc_tvheadend.sh
-alt + z
-    urxvtc -geometry 95x30
+    {bspc config -m HDMI-0 bottom_padding 0; killall xfce4-panel,,}
+    
+alt + {_,shift + ,ctrl + }y
+    {vlc_tvheadend.sh,,}
+    
+alt + {_,shift + ,ctrl + }z
+    {urxvtc -geometry 95x30,,}
 
-# dmenu
-Menu
-    dmenu_run -fn '-*-*-medium-r-normal-*-*-*-*-*-*-100-*-*' -p 'run:'
+# invoke rofi
+ctrl + Escape    
+    rofi -show window
+
+########################
+## Function keys:     ##
+########################
+
+super + F1
+    notify-send "git-status dotfiles" "$(ruby $HOME/scripts/Projects/git_status/bin/get_git_status.rb $HOME/scripts/Projects/dotfiles/dotfile_repo/)"
+
+# super + F2
+
+# super + F3
+
+# super + F4     # quit bspwm and friends, defined elsewhere
+
+# super + F5
+
+super + F6
+  bspc config -d focused top_padding 0; \
+  bspc config -d focused bottom_padding 0; \
+  bspc config -d focused border_width 1; \
+  bspc config -d focused window_gap 0
+
+super + F7
+  bspc config -d focused top_padding 10; \
+  bspc config -d focused bottom_padding 20; \
+  bspc config -d focused border_width 2; \
+  bspc config -d focused window_gap 12
+
+# super + F8
+
+# super + F9
+
+super + F10
+    rsync_to_raspi.py
+
+# super + F11
+
+# super + F12 # quit
+
+########################
+## Exiting:           ##
+########################
+
+# screen lock with slock
+super + l
+    slock
+
+# quit bspwm and friends
+super + F4
+    pkill -x panel; bspc quit 1
+
+########################
+## Not working:       ##
+########################
+
+# poweroff options
+Super_L + {_,ctrl + }Pause
+    sudo systemctl {poweroff,reboot}
+
+super + {_,ctrl + }F12
+    {systemctl poweroff,systemctl reboot}
+
+# 'loop' example here https://github.com/baskerville/dotfiles/blob/master/sxhkdrc
+super + alt + {shift + ,_}Escape
+    {bspc quit 1,\
+     bspc query -T > "$BSPWM_TREE"; \
+        bspc query -H > "$BSPWM_HISTORY"; \
+        bspc quit}
+
+# playing with chained chords
+# super + a ; v
+#    # vlc
+
+# one key to cycle through multiple actions
+# super + x
+#    # echo {a-c}
+
+# record history
+super + {o,i}
+    bspc control --record-history off; \
+    bspc window {older,newer} -f; \
+    bspc control --record-history on
+
+# adjust window gaps
+super + XF86Audio{Raise,Lower}Volume
+    wg=$(bspc config -d focused window_gap); \
+    bspc config -d focused window_gap $((wg {+,- (wg >= 3) *} 3))
+
+# adjust border width
+alt + XF86Audio{Raise,Lower}Volume
+    bw=$(bspc config -w focused border_width); \
+    bspc config -w focused border_width $(($bw {+,- ($bw >= 1) *} 1))
+
+# new floating urxvt window for small commands
+super + alt + z
+    bspc rule -a \* --one-shot floating=true follow=on && urxvtc -geometry 55x5+8+987
+    
+super + F3
+    bspc rule -a \* --one-shot floating=true sticky=true follow=on && urxvtc -e internet-status-loop.sh -geometry 55x5+8+987
+
+# Transplant the selected window to the given window
+# doesn't seem to do anything
+super + y
+    bspc window -w last.manual
+
+# one shot rules, preselect next window as...
+super + alt + {s,f,x,X,m}
+    rulc -a true '{floating,fullscreen,locked,sticky,private}=on' 'duration=1'
+    
+# toggle on/off all window visibility
+super + z
+    bspc control --toggle-visibility
+    
+#+ cycle to next/prev occupied desktop
+super + {n,p}
+    bspc desktop --focus {next,prev}.occupied
+
+# adjust border width
+ctrl + KP_{Add,Subtract}
+    bw=$(bspc config -w focused border_width); \
+    bspc config -w focused border_width $(($bw {+,- ($bw >= 1) *} 1))
 
 # audio settings
 #XF86Audio{Raise,Lower}Volume
@@ -319,116 +401,3 @@ XF86Calculator
 # screenshot
 Print
     scrot -q 100
-
-# invoke rofi
-# old: rofi -now -font "snap-10" -fg "#ffffff" -bg "#000000" -hlfg "#FFFFFF" -hlbg "#33b5e5" -bc "#000ac9"
-# old: rofi -show window -font "snap-16" -fg "#ffffff" -bg "#000000" -hlfg "#FFFFFF" -hlbg "#33b5e5" -bc "#000ac9"   
-ctrl + Escape    
-    rofi -show window
-
-########################
-## Function keys:     ##
-########################
-
-super + F1
-    notify-send "git-status dotfiles" "$(ruby $HOME/scripts/Projects/git_status/bin/get_git_status.rb $HOME/scripts/Projects/dotfiles/dotfile_repo/)"
-
-super + F2
-    sftpman-gtk
-
-# super + F3
-
-# super + F4     # quit bspwm and friends, defined elsewhere
-
-# super + F5
-
-super + F6
-  bspc config -d focused top_padding 0; \
-  bspc config -d focused bottom_padding 0; \
-  bspc config -d focused border_width 1; \
-  bspc config -d focused window_gap 0
-
-super + F7
-  bspc config -d focused top_padding 10; \
-  bspc config -d focused bottom_padding 20; \
-  bspc config -d focused border_width 2; \
-  bspc config -d focused window_gap 12
-
-# super + F8
-
-# super + F9
-
-super + F10
-    rsync_to_raspi.py
-
-# super + F11
-
-# super + F12 # quit
-
-########################
-## Exiting:           ##
-########################
-
-# screen lock with slock
-super + l
-    slock
-
-# quit bspwm and friends
-super + F4
-    pkill -x panel; bspc quit 1
-
-# poweroff options
-Super_L + {_,ctrl + }Pause
-    sudo systemctl {poweroff,reboot}
-
-super + {_,ctrl + }F12
-    {poweroff,reboot}
-
-# 'loop' example here https://github.com/baskerville/dotfiles/blob/master/sxhkdrc
-super + alt + {shift + ,_}Escape
-    {bspc quit 1,\
-     bspc query -T > "$BSPWM_TREE"; \
-        bspc query -H > "$BSPWM_HISTORY"; \
-        bspc quit}
-
-########################
-## Testing:           ##
-########################
-
-# playing with chained chords
-# super + a ; v
-#    # vlc
-
-# one key to cycle through multiple actions
-# super + x
-#    # echo {a-c}
-
-# record history
-super + {o,i}
-    bspc control --record-history off; \
-    bspc window {older,newer} -f; \
-    bspc control --record-history on
-
-# adjust window gaps
-super + XF86Audio{Raise,Lower}Volume
-    wg=$(bspc config -d focused window_gap); \
-    bspc config -d focused window_gap $((wg {+,- (wg >= 3) *} 3))
-
-# adjust border width
-alt + XF86Audio{Raise,Lower}Volume
-    bw=$(bspc config -w focused border_width); \
-    bspc config -w focused border_width $(($bw {+,- ($bw >= 1) *} 1))
-
-# using the mouse to close a window, like windows 8
-super + alt + button1
-    bspc pointer --grab $(bspc window --close)
-
-# new floating urxvt window for small commands
-super + alt + z
-    bspc rule -a \* --one-shot floating=true follow=on && urxvtc -geometry 55x5+8+987
-    
-super + F3
-    bspc rule -a \* --one-shot floating=true sticky=true follow=on && urxvtc -e internet-status-loop.sh -geometry 55x5+8+987
-    
-super + ctrl + m
-    dmenu_run -fn '-*-*-medium-r-normal-*-*-*-*-*-*-100-*-*' -p 'run:'

@@ -138,16 +138,20 @@ while read -r line ; do
   
   # use this to determine the wm_infos string contents
    echo ${wm_infos} > wm_info
-
+   
+   #1) %{F}%{B}  DVI-I-0  %{B-}%{F-}  %{B#FF425059}  0  %{-u U- F- B-}%{F#FFcdcdcd}  1  %{U- F- B-}%{F#FFcdcdcd}  2  %{U- F- B-}%{F#FFcdcdcd}  3  %{U- F- B-}%{F#FFFFFF00 B#FF000ac9}  4  %{F- B-}%{F}%{B}  HDMI-0  %{B-}%{F-}  %{F#FFFFFF00 B#FF000ac9}  5  %{F- B-}%{F#FFcdcdcd}  6  %{U- F- B-}%{F#FFcdcdcd}  7  %{U- F- B-}%{F#FFcdcdcd}  8  %{U- F- B-}%{F#FFcdcdcd}  9  %{U- F- B-}
+   #2) %{B#FF425059}  0  %{-u U- F- B-}%{F#FFcdcdcd}  1  %{U- F- B-}%{F#FFcdcdcd}  2  %{U- F- B-}%{F#FFcdcdcd}  3  %{U- F- B-}%{F#FFFFFF00 B#FF000ac9}  4  %{F- B-}%{F}%{B}  HDMI-0  %{B-}%{F-}  %{F#FFFFFF00 B#FF000ac9}  5  %{F- B-}%{F#FFcdcdcd}  6  %{U- F- B-}%{F#FFcdcdcd}  7  %{U- F- B-}%{F#FFcdcdcd}  8  %{U- F- B-}%{F#FFcdcdcd}  9  %{U- F- B-}
+   #3a) %{B#FF425059}  0  %{-u U- F- B-}%{F#FFcdcdcd}  1  %{U- F- B-}%{F#FFcdcdcd}  2  %{U- F- B-}%{F#FFcdcdcd}  3  %{U- F- B-}%{F#FFFFFF00 B#FF000ac9}  4  %{F- B-}  
+   #3b) %{F#FFFFFF00 B#FF000ac9}  5  %{F- B-}%{F#FFcdcdcd}  6  %{U- F- B-}%{F#FFcdcdcd}  7  %{U- F- B-}%{F#FFcdcdcd}  8  %{U- F- B-}%{F#FFcdcdcd}  9  %{U- F- B-}
 
   # clean the wm_infos string
-  substr1="%{F}%{B}  HDMI-0  %{B-}%{F-}  "      # remove this from the start of the wm_info string
+  substr1="%{F}%{B}  DVI-I-0  %{B-}%{F-}  "      # remove this from the start of the wm_info string
   wm_infos_cut=${wm_infos#*${substr1}}          # strips off the unwanted beginning of wm_infos
 
   # use this substring to split the remaining wm_infos string
-  substr2="%{F}%{B}  DVI-I-0  %{B-}%{F-}  "
-  dvi_desk_info=${wm_infos_cut#*${substr2}}     # strips off the text before this string, ie the DVI desktop info
-  hdmi_desk_info=${wm_infos_cut%${substr2}*}    # strips off the text after the beginning of this string, ie the HDMI desktop info
+  substr2="%{F}%{B}  HDMI-0  %{B-}%{F-}  "
+  hdmi_desk_info=${wm_infos_cut#*${substr2}}     # strips off the text before this string, ie the HDMI desktop info
+  dvi_desk_info=${wm_infos_cut%${substr2}*}    # strips off the text after the beginning of this string, ie the DVI desktop info
 
   # and finally print the dvi_desk_info first (ie monitor on left), switch to the right monitor (`S1`), print the hdmi_desk_info, then print the sysinfo (ie clock)
   printf "%s\n" "%{l}%{FCOLOR5}${dvi_desk_info}%{F-} %{S1}%{l}%{FCOLOR5}${hdmi_desk_info} %{F-}%{F$COLOR4} $title%{F-} %{r}%{F$COLOR4}$sys_infos%{F-} "
