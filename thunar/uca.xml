@@ -102,4 +102,18 @@
 	<patterns>*</patterns>
 	<image-files/>
 </action>
+<action>
+	<icon></icon>
+	<name>Rename (no crash)</name>
+	<unique-id>1468998331597096-1</unique-id>
+	<command>/home/rob/bin/thunar_custom_rename %n</command>
+	<description></description>
+	<patterns>*</patterns>
+	<directories/>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
 </actions>
