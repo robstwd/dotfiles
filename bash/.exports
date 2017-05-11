@@ -4,6 +4,11 @@
 export EDITOR=vim
 export XDG_CONFIG_HOME="/home/rob/.config"
 
+# added this 2016-06-18 in response to error: $ systemctl --user status
+# Failed to connect to bus: No such file or directory
+# https://answers.launchpad.net/ubuntu/+source/systemd/+question/287454
+export XDG_RUNTIME_DIR=/run/user/`id -u`
+
 if [ $(uname -m) == 'x86_64' ]
 then
   export BSPWM_SOCKET="/tmp/bspwm-socket"
@@ -12,4 +17,3 @@ then
   export BSPWM_STACK="/tmp/bspwm.stack"
   export PANEL_FIFO="/tmp/panel-fifo"
 fi
-
