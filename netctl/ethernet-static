@@ -2,10 +2,9 @@ Description='A basic static ethernet connection'
 Interface=eno1
 Connection=ethernet
 IP=static
-Address=('192.168.178.12/24')
-#Routes=('192.168.0.0/24 via 192.168.1.2')
-Gateway='192.168.178.1'
-DNS=('192.231.203.132' '192.231.203.3')
+Address=('10.0.0.1/24')
+Gateway='10.0.0.138'
+DNS=('61.9.211.1' '61.9.211.33')
 
 # added this for getflix
 #DNS=('54.252.183.4' '54.252.183.5')
