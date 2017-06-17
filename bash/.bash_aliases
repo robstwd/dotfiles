@@ -157,25 +157,25 @@ alias is='internet-status.sh'
 alias smi='sudo make install'
 
 # mount raspberry pi 2 NAS drives with sshfs
-alias ssmi='sshfs rob@192.168.178.51:/mnt/Io $HOME/mounts/Io -C -p 22'
+alias ssmi='sshfs rob@10.0.0.51:/mnt/Io $HOME/mounts/Io -C -p 22'
 alias ssmiu='fusermount -u $HOME/mounts/Io'
 
-alias ssmc='sshfs rob@192.168.178.51:/mnt/Callisto $HOME/mounts/Callisto -C -p 22'
+alias ssmc='sshfs rob@10.0.0.51:/mnt/Callisto $HOME/mounts/Callisto -C -p 22'
 alias ssmcu='fusermount -u $HOME/mounts/Callisto'
 
-alias ssmg='sshfs rob@192.168.178.51:/mnt/Ganymede $HOME/mounts/Ganymede -C -p 22'
+alias ssmg='sshfs rob@10.0.0.51:/mnt/Ganymede $HOME/mounts/Ganymede -C -p 22'
 alias ssmgu='fusermount -u $HOME/mounts/Ganymede'
 
-alias ssme='sshfs rob@192.168.178.51:/mnt/Europa $HOME/mounts/Europa -C -p 22'
+alias ssme='sshfs rob@10.0.0.51:/mnt/Europa $HOME/mounts/Europa -C -p 22'
 alias ssmeu='fusermount -u $HOME/mounts/Europa'
 
-alias smr1='sshfs rob@192.168.178.50:/ $HOME/mounts/raspberrypi1 -C -p 22'
+alias smr1='sshfs rob@10.0.0.50:/ $HOME/mounts/raspberrypi1 -C -p 22'
 alias smr1u='fusermount -u $HOME/mounts/raspberrypi1'
 
-alias smr2='sshfs rob@192.168.178.51:/ $HOME/mounts/raspberrypi2 -C -p 39906'
+alias smr2='sshfs rob@10.0.0.51:/ $HOME/mounts/raspberrypi2 -C -p 39906'
 alias smr2u='fusermount -u $HOME/mounts/raspberrypi2'
 
-alias smr3='sshfs rob@192.168.178.54:/ $HOME/mounts/raspberrypi3 -C'
+alias smr3='sshfs rob@10.0.0.52:/ $HOME/mounts/raspberrypi3 -C'
 alias smr3u='fusermount -u $HOME/mounts/raspberrypi3'
 
 # docker aliases
