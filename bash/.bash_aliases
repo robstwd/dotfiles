@@ -190,3 +190,6 @@ alias dpa='docker ps --all'
 alias rsc='docker rm $(docker ps --filter status=exited --quiet)'                  # remove stopped containers
 alias de='docker exec'
 alias din='docker inspect'
+
+# directory changes
+alias go.dots='cd $HOME/scripts/Projects/dotfiles/dotfile_repo'
