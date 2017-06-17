@@ -1,7 +1,14 @@
-let $PYTHONPATH="/usr/lib/python3.4/site-packages"
 
 " Always show the status line
 set laststatus=2
+
+" set airline theme
+" https://github.com/vim-airline/vim-airline-themes
+let g:airline_theme='dark'
+
+" display glyph fonts
+" https://github.com/vim-airline/vim-airline/wiki/FAQ#the-powerline-font-symbols-are-not-showing-up
+let g:airline_powerline_fonts = 1
 
 " Enable syntax highlighting
 syntax enable
