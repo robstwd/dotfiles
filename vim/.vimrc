@@ -25,3 +25,7 @@ set showmatch       " When a bracket is inserted, briefly jump to the matching
 
 " execute python script; press <Esc> and then <F5>
 nnoremap <silent> <F5> :!clear;python %<CR>
+
+set cursorline      " highlight current line
+set incsearch       " Find as you type search
+set hlsearch        " Highlight search terms
