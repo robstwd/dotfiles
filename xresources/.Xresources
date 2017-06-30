@@ -164,7 +164,7 @@ rofi.ssh-set-title:       true
 ! rofi.key:               F12
 ! rofi.rkey:              mod1+F2
 ! rofi.skey:              mod1+F3
-rofi.location:            2
+rofi.location:            1
 rofi.sidebar-mode:        false
 
 ! rofi.fg:                  #ffffff
@@ -205,7 +205,7 @@ rofi.switchers:           window,run,ssh
 ! rofi.hlbg:                           #33b5e5
 ! rofi.bc:                             #000ac9
 ! rofi.bw:                             5
-! rofi.location:                       2
+! rofi.location:                       1
 ! rofi.padding:                        8
 ! rofi.yoffset:                        0
 ! rofi.xoffset:                        -2
