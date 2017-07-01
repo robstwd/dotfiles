@@ -61,6 +61,7 @@ alias ht='htop'
 alias cuc='cucumber'
 #~ alias rs='rspec'
 alias keys="xev | grep -A2 --line-buffered '^KeyRelease' | sed -n '/keycode /s/^.*keycode \([0-9]*\).* (.*, \(.*\)).*$/\1 \2/p'"
+alias nv='nvim'
 
 
 # misc
