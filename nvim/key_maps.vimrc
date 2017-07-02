@@ -4,3 +4,6 @@ inoremap jk <ESC>
 
 " remap leader key to spacebar
 let mapleader = "\<Space>"
+
+" remap : to ;
+nnoremap ; :
