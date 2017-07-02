@@ -77,6 +77,9 @@ alias ag='alias | grep -i'
 alias v='vim'
 alias sv='sudo vim'
 
+# Pretty print the path
+alias path='echo $PATH | tr -s ":" "\n"'
+alias e="$EDITOR"
 
 # xinit aliases
 #alias stm='xinit monsterwm_run'
