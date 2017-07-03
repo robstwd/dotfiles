@@ -7,3 +7,7 @@ let mapleader = "\<Space>"
 
 " remap : to ;
 nnoremap ; :
+
+" switch between buffers
+map <F5> :bprevious<CR>
+map <F6> :bnext<CR>

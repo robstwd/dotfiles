@@ -25,7 +25,7 @@ Plug 'scrooloose/syntastic'
 
 " plugin to show the list of buffers in the command bar
 " https://github.com/bling/vim-bufferline
-Plug 'bling/vim-bufferline'
+" Plug 'bling/vim-bufferline'
 
 " asynchronous keyword completion system in the current buffer
 " https://github.com/Shougo/deoplete.nvim 
