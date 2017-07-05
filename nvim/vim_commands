@@ -1,0 +1,26 @@
+j - move cursor down
+k - move cursor up
+h - move cursor left
+l - move cursor right
+
+:q - quit
+:w - write
+
+x - delete char under cursor
+i - to insert text (before the cursor)
+
+A - append text at end of line
+
+dw - delete word (with cursor on first letter of word)
+d$ - delete to the end of the line
+
+motions:
+w - until the start of the next word (excluding its first character)
+e - to the end of the current word (including the last character)
+$ - to the end of the line (including the last character)
+
+2w - 2 of the above w movement
+3e - 3 of the above e movement
+
+0 (zero) - move to the start of the line
+(line 275)
