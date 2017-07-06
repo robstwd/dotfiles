@@ -30,5 +30,26 @@ dd - delete whole line
 
 u - undo the last change
 U - return the whole line to its previous state
-(line 348)
 
+p - puts text that has been deleted (ie stored in the vim register)
+rx - replace the character at the cursor with x
+
+ce - change until the end of the word
+c$ - change until the end of the line
+
+G - move to bottom of file
+gg - move to top of file
+43G - move to line no 43
+
+search
+/searchterm <enter> - searches for the term 'searchterm'
+n - searches again (down)
+N - searches again (up)
+? - searches for phrase in upwards direction
+<Ctrl-o> - go back to where you were
+<Ctrl-i> - go forward
+
+% - find matching ), }, ]
+
+
+(line 348)
