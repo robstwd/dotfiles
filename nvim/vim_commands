@@ -23,4 +23,12 @@ $ - to the end of the line (including the last character)
 3e - 3 of the above e movement
 
 0 (zero) - move to the start of the line
-(line 275)
+
+d2w - delete 2 words (alter number to suit)
+dd - delete whole line
+2dd - delete 2 lines
+
+u - undo the last change
+U - return the whole line to its previous state
+(line 348)
+
