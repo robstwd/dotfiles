@@ -51,5 +51,9 @@ N - searches again (up)
 
 % - find matching ), }, ]
 
-
+:s/old/new/ - substitute "new" for "old", the first instance
+:s/old/new/g - substitute "new" for "old", all in that line
+:48,67s/old/new/g - as above, between the lines 48 & 67
+:%s/old/new/g - change the terms throughout the file
+:%s/old/new/gc - as above, with confirmation
 (line 510)
