@@ -13,3 +13,5 @@ set cursorline      " highlight current line
 set incsearch       " Find as you type search
 
 set hlsearch        " Highlight search terms
+
+"set spell           " turn spell checker on
