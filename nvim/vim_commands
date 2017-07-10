@@ -56,4 +56,6 @@ N - searches again (up)
 :48,67s/old/new/g - as above, between the lines 48 & 67
 :%s/old/new/g - change the terms throughout the file
 :%s/old/new/gc - as above, with confirmation
+
+:e - reload the current file if it has changed on disk, outside of vim
 (line 510)
