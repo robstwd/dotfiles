@@ -7,7 +7,8 @@ l - move cursor right
 :w - write
 
 x - delete char under cursor
-i - to insert text (before the cursor)
+i - to insert text before the cursor
+a - to insert text after the cursor
 
 A - append text at end of line
 
@@ -70,7 +71,18 @@ v - enter visual mode, in order to select text
 :r FILENAME - retrieve the contents of FILENAME and add to text
 :r !ls - read the output of any command and add to file
 
+o - adds a new line below and enters insert mode
+O - adds a new line above and enters insert mode
 
+R - replace mode; every typed character deletes an existing character
 
+y - yank to copy text then p to put the text
 
-(line 510)
+:help command - opens help window above (or <F1>)
+<Ctrl-w><Ctrl-w> - toggles between windows
+
+<Ctrl-d> - after a command shows the list of commands starting with the letter
+(eg :e<Ctrl-d> to show :edit etc)
+
+<Tab> to complete the command
+
