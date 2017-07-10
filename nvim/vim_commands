@@ -58,4 +58,19 @@ N - searches again (up)
 :%s/old/new/gc - as above, with confirmation
 
 :e - reload the current file if it has changed on disk, outside of vim
+
+:!<cmd> - shell out with the <cmd> command (eg :!ls)
+
+v - enter visual mode, in order to select text
+  - move with usual keys to expand selection
+  - operate on selection with eg d to delete
+
+:w FILENAME - save as the file
+
+:r FILENAME - retrieve the contents of FILENAME and add to text
+:r !ls - read the output of any command and add to file
+
+
+
+
 (line 510)
