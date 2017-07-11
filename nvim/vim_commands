@@ -86,3 +86,4 @@ y - yank to copy text then p to put the text
 
 <Tab> to complete the command
 
+. - repeats the previous command
