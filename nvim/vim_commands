@@ -87,3 +87,22 @@ y - yank to copy text then p to put the text
 <Tab> to complete the command
 
 . - repeats the previous command
+
+>G - indent the current line
+
+C - deletes to end of current line and enters insert mode
+s - deletes character under cursor and enters insert mode
+S - deletes whole line and enters insert mode
+I - move to start of line and enter insert mode
+A - move to end of line and enter insert mode 
+
+f{char} - look ahead for the next occurence of char and move onto it
+; - repeats the last search with the f command, forwards (BUT mapped to :)
+, - repeats the last search with the f command, backwards
+
+t{char} - look ahead for the next occurence of char and move just before it
+; - repeats the last search with the f command, forwards (BUT mapped to :)
+, - repeats the last search with the f command, backwards
+
+* - search the word under the cursor
+cw - deletes rest of word and enters insert mode
