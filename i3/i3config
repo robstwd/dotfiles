@@ -242,19 +242,19 @@ bindsym Control+Escape exec --no-startup-id rofi -show window -hide-scrollbar -f
 # ======================================================================
 # FUNCTION KEYS
 
-bindsym F1 exec 
+#~ bindsym F1 exec
 # i3-dmenu-desktop which only displays applications shipping a .desktop file.
 bindsym F2 exec --no-startup-id i3-dmenu-desktop --dmenu='rofi -dmenu -hide-scrollbar -fullscreen'
-bindsym F3 exec 
-bindsym F4 exec 
-bindsym F5 exec 
-bindsym F6 exec 
-bindsym F7 exec 
-bindsym F8 exec 
-bindsym F9 exec 
-bindsym F10 exec 
-bindsym F11 exec 
-bindsym F12 exec 
+#~ bindsym F3 exec
+#~ bindsym F4 exec
+#~ bindsym F5 exec
+#~ bindsym F6 exec
+#~ bindsym F7 exec
+#~ bindsym F8 exec
+#~ bindsym F9 exec
+#~ bindsym F10 exec
+#~ bindsym F11 exec
+#~ bindsym F12 exec
 
 # ======================================================================
 # FUNCTION FN KEYS
@@ -267,9 +267,9 @@ bindsym XF86Tools exec
 bindsym XF86AudioPrev exec 
 bindsym XF86AudioPlay exec 
 bindsym XF86AudioNext exec 
-bindsym XF86AudioMute exec 
-bindsym XF86AudioLowerVolume exec 
-bindsym XF86AudioRaiseVolume exec 
+bindsym XF86AudioMute "exec amixer set Master toggle && pkill -RTMIN+10 i3blocks"
+bindsym XF86AudioLowerVolume exec "amixer set Master 5%- && pkill -RTMIN+10 i3blocks"
+bindsym XF86AudioRaiseVolume exec "amixer set Master 5%+ && pkill -RTMIN+10 i3blocks"
 bindsym XF86Sleep exec --no-startup-id "i3lock --color=000000"
 
 # ======================================================================
@@ -334,3 +334,8 @@ client.unfocused        #333333 #222222 #888888 #292d2e   #222222
 client.urgent           #2f343a #900000 #ffffff #900000   #900000
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 client.background       #ffffff
+
+# ======================================================================
+# binding for i3blocks
+bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
+bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
