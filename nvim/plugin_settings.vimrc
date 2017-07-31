@@ -22,3 +22,13 @@ let NERDTreeShowHidden=1         " default show hidden files
 let g:deoplete#enable_at_startup = 1
 
 " ======================================================================
+
+" limelight settings
+autocmd! User GoyoEnter Limelight    " integration with goyo
+autocmd! User GoyoLeave Limelight!   " integration with goyo
+
+" =====================================================================
+
+" LanguageTool settings
+let g:languagetool_jar = '/usr/share/java/languagetool/languagetool-commandline.jar'
+let g:languagetool_lang = 'en-AU'

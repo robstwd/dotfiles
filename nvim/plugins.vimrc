@@ -37,6 +37,22 @@ Plug 'zchee/deoplete-jedi'
 " deoplete-ruby: ruby source for Ruby language
 Plug 'fishbullet/deoplete-ruby'
 
+" hyperfocus writing 
+" https://github.com/junegunn/limelight.vim
+Plug 'junegunn/limelight.vim'
+
+" Distraction-free writing in Vim
+" https://github.com/junegunn/goyo.vim
+Plug 'junegunn/goyo.vim'
+
+" writing features for vim
+" https://github.com/reedes/vim-pencil
+Plug 'reedes/vim-pencil'
+
+" language tool integration
+" https://github.com/dpelle/vim-LanguageTool
+Plug 'dpelle/vim-LanguageTool'
+
 call plug#end()
 
 " ======================================================================
