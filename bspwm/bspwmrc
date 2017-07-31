@@ -10,20 +10,20 @@
 ########################
 
 # geometry
-bspc config border_width            6
-bspc config window_gap              10
+bspc config border_width            3
+bspc config window_gap              8
 bspc config split_ratio             0.5
 
 # settings
-bspc config borderless_monocle      true
-bspc config gapless_monocle         true
+#~ bspc config borderless_monocle      true
+#~ bspc config gapless_monocle         true
 bspc config focus_follows_pointer   true   # Focus the window under the pointer
-bspc config auto_alternate          true   # Interpret two consecutive identical use messages as an alternate message
-bspc config auto_cancel             true   # Interpret two consecutive identical presel messages as a cancel message
-bspc config apply_floating_atom     true   # Set the value of the _BSPWM_FLOATING_WINDOW atom of each window according to its floating state
-bspc config history_aware_focus     true   # Give priority to the focus history when focusing nodes
-bspc config pointer_follows_monitor false  # When focusing a monitor, put the pointer at its center
-bspc config ignore_ewmh_focus       true   # Ignore EWMH requests to focus a window.
+#~ bspc config auto_alternate          true   # Interpret two consecutive identical use messages as an alternate message
+#~ bspc config auto_cancel             true   # Interpret two consecutive identical presel messages as a cancel message
+#~ bspc config apply_floating_atom     true   # Set the value of the _BSPWM_FLOATING_WINDOW atom of each window according to its floating state
+#~ bspc config history_aware_focus     true   # Give priority to the focus history when focusing nodes
+#~ bspc config pointer_follows_monitor false  # When focusing a monitor, put the pointer at its center
+#~ bspc config ignore_ewmh_focus       true   # Ignore EWMH requests to focus a window.
 
 # colours
 bspc config focused_border_color "#000ac9"     # Color of the border of a focused window of a focused monitor.
@@ -51,29 +51,30 @@ bspc monitor -f HDMI-0
 ########################
 ## Initiate Rules:    ##
 ########################
-bspc rule -a albert focus=on
-bspc rule -a Kcalc follow=on floating=on center=true
-bspc rule -a Thunar_custom_rename state=floating
-bspc rule -a Nitrogen follow=on floating=on
+#~ bspc rule -a albert focus=on
+#~ bspc rule -a Kcalc follow=on floating=on center=true
+#~ bspc rule -a Thunar_custom_rename state=floating
+#~ bspc rule -a Nitrogen follow=on floating=on
 bspc rule -a Vlc state=floating
-bspc rule -a Klavaro follow=on floating=on
-bspc rule -a Qt4-ssh-askpass follow=on floating=on center=true
-bspc rule -a Sftpman-gtk follow=on floating=on center=true
-bspc rule -a Steam state=fullscreen
-bspc rule -a plank layer=above manage=on border=off
+#~ bspc rule -a Klavaro follow=on floating=on
+#~ bspc rule -a Qt4-ssh-askpass follow=on floating=on center=true
+#~ bspc rule -a Sftpman-gtk follow=on floating=on center=true
+#~ bspc rule -a Steam state=fullscreen
+#~ bspc rule -a plank layer=above manage=on border=off
 
 
 ########################
 ## Restore Session:   ##
 ########################
-if [ -e "$BSPWM_TREE" ] ; then
-    bspc restore -T "$BSPWM_TREE" -H "$BSPWM_HISTORY" -S "$BSPWM_STACK"
-    rm "$BSPWM_TREE" "$BSPWM_HISTORY" "$BSPWM_STACK"
-fi
+#~ if [ -e "$BSPWM_TREE" ] ; then
+    #~ bspc restore -T "$BSPWM_TREE" -H "$BSPWM_HISTORY" -S "$BSPWM_STACK"
+    #~ rm "$BSPWM_TREE" "$BSPWM_HISTORY" "$BSPWM_STACK"
+#~ fi
 
 ########################
 ## Initiate Panel:    ##
 ########################
 
 # start panel script
-panel &
+#~ panel &
+panel_new &

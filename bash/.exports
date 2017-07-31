@@ -16,4 +16,8 @@ then
   export BSPWM_HISTORY="/tmp/bspwm.history"
   export BSPWM_STACK="/tmp/bspwm.stack"
   export PANEL_FIFO="/tmp/panel-fifo"
+  export PANEL_HEIGHT=24
+  #~ export PANEL_FONT="-*-fixed-*-*-*-*-10-*-*-*-*-*-*-*"
+  export PANEL_FONT="-*-dejavu sans mono for powerline-medium-r-normal-*-17-*-*-*-*-*-*-*"
+  export PANEL_WM_NAME=bspwm_panel
 fi
