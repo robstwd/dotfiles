@@ -20,3 +20,5 @@
 	spellingdictionary = none
 [push]
 	default = simple
+[credential]
+	helper = cache --timeout=7200
