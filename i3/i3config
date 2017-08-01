@@ -136,7 +136,7 @@ bar {
         position top
         separator_symbol " | "
         font pango:monospace 12
-        status_command i3blocks -c ~/.config/i3blocks/i3blocks.conf
+        status_command i3blocks -c ~/.config/i3blocks/i3blocks_hdmi.conf
         tray_output primary
         colors {
             background #000000
@@ -155,8 +155,9 @@ bar {
         output DVI-I-0
         separator_symbol " | "
         position top
-        font pango:monospace 10
-        status_command i3status
+        font pango:monospace 11
+        #~ status_command i3status
+        status_command i3blocks -c ~/.config/i3blocks/i3blocks_dvi.conf
         colors {
             background #000000
             separator #666666
