@@ -37,7 +37,7 @@ export SSH_AUTH_SOCK
 # run bspwm
 #exec bspwm_run
 # exec twm
-session=${1:-bspwm}
+session=${1:-i3}
 
 case $session in
     bspwm             ) exec bspwm_run;;
