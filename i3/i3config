@@ -193,7 +193,7 @@ bindsym Mod1+o exec libreoffice
 bindsym Mod1+p exec keepassx
 bindsym Mod1+q exec 
 bindsym Mod1+r exec 
-bindsym Mod1+s exec 
+bindsym Mod1+s exec gnome-sudoku
 bindsym Mod1+t exec 
 bindsym Mod1+u exec 
 bindsym Mod1+v exec vlc
