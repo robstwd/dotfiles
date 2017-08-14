@@ -91,9 +91,9 @@ alias e="$EDITOR"
 #alias sts='xinit snapwm_start'
 #alias ste='xinit enlightenment_start'
 alias sxi='xinit i3'
-alias sxb='xinit'
+alias sxb='xinit bspwm'
 alias sxm='xinit monsterwm'
-
+alias sx='xinit'
 
 # start wm's in additional tty(7)
 #~ alias sx7='xinit xbmc -- :1 vt7'
