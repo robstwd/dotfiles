@@ -140,7 +140,7 @@ bar {
         tray_output primary
         colors {
             background #000000
-            separator #666666
+            separator  #666666
             statusline #ffffff
 
             focused_workspace  #000ac9 #000ac9 #ffffff
@@ -160,7 +160,7 @@ bar {
         status_command i3blocks -c ~/.config/i3blocks/i3blocks_dvi.conf
         colors {
             background #000000
-            separator #666666
+            separator  #666666
             statusline #ffffff
 
             focused_workspace  #000ac9 #000ac9 #ffffff
@@ -175,31 +175,31 @@ bar {
 # ======================================================================
 # APPLICATIONS; bound to alt key
 
-bindsym Mod1+a exec 
-bindsym Mod1+b exec 
+bindsym Mod1+a exec asunder
+bindsym Mod1+b exec dbus-launch brasero
 bindsym Mod1+c exec chromium
 bindsym Mod1+d exec dmenu_run
-bindsym Mod1+e exec 
+bindsym Mod1+e exec easytag
 bindsym Mod1+f exec thunar
 bindsym Mod1+g exec geany
 bindsym Mod1+h exec ghb
-bindsym Mod1+i exec 
-bindsym Mod1+j exec kpat
+bindsym Mod1+i exec mirage
+bindsym Mod1+j exec
 bindsym Mod1+k exec kodi
 bindsym Mod1+l exec leafpad
 bindsym Mod1+m exec meld
 bindsym Mod1+n exec nitrogen
 bindsym Mod1+o exec libreoffice
 bindsym Mod1+p exec keepassx
-bindsym Mod1+q exec 
-bindsym Mod1+r exec 
-bindsym Mod1+s exec gnome-sudoku
-bindsym Mod1+t exec 
-bindsym Mod1+u exec 
+bindsym Mod1+q exec
+bindsym Mod1+r exec remmina
+bindsym Mod1+s exec stellarium
+bindsym Mod1+t exec totem
+bindsym Mod1+u exec
 bindsym Mod1+v exec vlc
 bindsym Mod1+w exec inox
-bindsym Mod1+x exec 
-bindsym Mod1+y exec 
+bindsym Mod1+x exec
+bindsym Mod1+y exec
 bindsym Mod1+z exec urxvtc
 
 # kill focused window
@@ -208,32 +208,62 @@ bindsym Mod1+Escape kill
 # ======================================================================
 # APPLICATIONS; bound to alt + shift key
 
-bindsym Mod1+Shift+a exec 
-bindsym Mod1+Shift+b exec 
+bindsym Mod1+Shift+a exec
+bindsym Mod1+Shift+b exec
 bindsym Mod1+Shift+c exec clipgrab
 bindsym Mod1+Shift+d exec digikam
-bindsym Mod1+Shift+e exec 
-bindsym Mod1+Shift+f exec 
-bindsym Mod1+Shift+g exec 
-bindsym Mod1+Shift+h exec 
-bindsym Mod1+Shift+i exec 
-bindsym Mod1+Shift+j exec 
+bindsym Mod1+Shift+e exec google-earth
+bindsym Mod1+Shift+f exec filezilla
+bindsym Mod1+Shift+g exec gramps
+bindsym Mod1+Shift+h exec hugin
+bindsym Mod1+Shift+i exec
+bindsym Mod1+Shift+j exec
 bindsym Mod1+Shift+k exec klavaro
-bindsym Mod1+Shift+l exec 
-bindsym Mod1+Shift+m exec 
-bindsym Mod1+Shift+n exec 
-bindsym Mod1+Shift+o exec 
+bindsym Mod1+Shift+l exec
+bindsym Mod1+Shift+m exec midori
+bindsym Mod1+Shift+n exec
+bindsym Mod1+Shift+o exec
 bindsym Mod1+Shift+p exec pavucontrol
-bindsym Mod1+Shift+q exec 
-bindsym Mod1+Shift+r exec 
-bindsym Mod1+Shift+s exec 
-bindsym Mod1+Shift+t exec 
-bindsym Mod1+Shift+u exec 
+bindsym Mod1+Shift+q exec
+bindsym Mod1+Shift+r exec
+bindsym Mod1+Shift+s exec sftpman-gtk
+bindsym Mod1+Shift+t exec
+bindsym Mod1+Shift+u exec
 bindsym Mod1+Shift+v exec virtualbox
-bindsym Mod1+Shift+w exec 
-bindsym Mod1+Shift+x exec 
-bindsym Mod1+Shift+y exec 
-bindsym Mod1+Shift+z exec 
+bindsym Mod1+Shift+w exec webcamoid
+bindsym Mod1+Shift+x exec
+bindsym Mod1+Shift+y exec
+bindsym Mod1+Shift+z exec
+
+# ======================================================================
+# GAMES; bound to alt + control key
+
+bindsym Mod1+Control+a exec
+bindsym Mod1+Control+b exec
+bindsym Mod1+Control+c exec
+bindsym Mod1+Control+d exec
+bindsym Mod1+Control+e exec
+bindsym Mod1+Control+f exec
+bindsym Mod1+Control+g exec
+bindsym Mod1+Control+h exec
+bindsym Mod1+Control+i exec
+bindsym Mod1+Control+j exec
+bindsym Mod1+Control+k exec kshisen
+bindsym Mod1+Control+l exec
+bindsym Mod1+Control+m exec kmahjongg
+bindsym Mod1+Control+n exec neverball
+bindsym Mod1+Control+o exec
+bindsym Mod1+Control+p exec kpat
+bindsym Mod1+Control+q exec
+bindsym Mod1+Control+r exec
+bindsym Mod1+Control+s exec gnome-sudoku
+bindsym Mod1+Control+t exec
+bindsym Mod1+Control+u exec
+bindsym Mod1+Control+v exec
+bindsym Mod1+Control+w exec
+bindsym Mod1+Control+x exec
+bindsym Mod1+Control+y exec
+bindsym Mod1+Control+z exec
 
 # ======================================================================
 # others
@@ -253,8 +283,8 @@ bindsym F2 exec --no-startup-id i3-dmenu-desktop --dmenu='rofi -dmenu -hide-scro
 #~ bindsym F7 exec
 #~ bindsym F8 exec
 #~ bindsym F9 exec
-#~ bindsym F10 exec
-#~ bindsym F11 exec
+bindsym F10 exec passmenu
+bindsym F11 exec scratchpad show
 #~ bindsym F12 exec
 
 # ======================================================================
@@ -277,6 +307,7 @@ bindsym XF86Sleep exec --no-startup-id "i3lock --color=000000"
 # APPLICATION RULES
 
 for_window [class="Vlc"] floating enable
+for_window [class="Nitrogen"] floating enable
 #~ assign [class="Leafpad"] 2
 
 # ======================================================================
