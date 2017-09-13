@@ -153,8 +153,8 @@ rofi.width:               100
 rofi.lines:               20
 rofi.columns:             1
 rofi.font:                snap 16
-rofi.bw:                  80
-rofi.padding:             8
+rofi.bw:                  0
+rofi.padding:             80
 rofi.yoffset:             0
 rofi.xoffset:             -2
 rofi.fixed-num-lines:     true
