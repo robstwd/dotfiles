@@ -2,12 +2,11 @@
 # /etc/fstab: static file system information
 #
 # <file system>	<dir>	<type>	<options>	<dump>	<pass>
-# /dev/sda2
-UUID=8d02da72-b6ae-42a3-9dcd-d9da95b9d63b	/         	btrfs     	rw,relatime,ssd,space_cache	0 0
+# /dev/sda2 - / root partition
+UUID=bbff25a4-28a7-415e-81cd-8642705cbb8d	/         	ext4      	rw,relatime,data=ordered	0 1
 
-# /dev/sdb1
-UUID=c89d7f32-2dd6-414d-9118-064fa9cfbf4d	/home     	btrfs     	rw,relatime,space_cache	0 0
+# /dev/sda1 - UEFI boot partition
+UUID=383B-014E      	/boot     	vfat      	rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro	0 2
 
-# /dev/sda1
-UUID=2271-629B      	/boot     	vfat      	rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro	0 2
-
+# /dev/sdb1 - home drive
+UUID=c89d7f32-2dd6-414d-9118-064fa9cfbf4d      /home       btrfs      rw,relatime,space_cache 0 0
