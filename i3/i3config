@@ -22,8 +22,6 @@ font pango:DejaVu Sans Mono 11
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-bindsym $mod+Shift+q kill
-
 # start dmenu (a program launcher)
 #~ bindsym $mod+d exec dmenu_run
 #~ bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
@@ -192,7 +190,7 @@ bindsym Mod1+n exec nitrogen
 bindsym Mod1+o exec libreoffice
 bindsym Mod1+p exec keepassx
 bindsym Mod1+q exec
-bindsym Mod1+r exec remmina
+bindsym Mod1+r exec 
 bindsym Mod1+s exec stellarium
 bindsym Mod1+t exec totem
 bindsym Mod1+u exec
@@ -204,6 +202,8 @@ bindsym Mod1+z exec urxvtc
 
 # kill focused window
 bindsym Mod1+Escape kill
+
+bindsym $mod+Shift+q kill
 
 # ======================================================================
 # APPLICATIONS; bound to alt + shift key
@@ -220,7 +220,7 @@ bindsym Mod1+Shift+i exec
 bindsym Mod1+Shift+j exec
 bindsym Mod1+Shift+k exec klavaro
 bindsym Mod1+Shift+l exec
-bindsym Mod1+Shift+m exec midori
+bindsym Mod1+Shift+m exec 
 bindsym Mod1+Shift+n exec
 bindsym Mod1+Shift+o exec
 bindsym Mod1+Shift+p exec pavucontrol
@@ -283,7 +283,7 @@ bindsym F2 exec --no-startup-id i3-dmenu-desktop --dmenu='rofi -dmenu -hide-scro
 #~ bindsym F7 exec
 #~ bindsym F8 exec
 #~ bindsym F9 exec
-bindsym F10 exec passmenu
+bindsym F10 exec rofi-passmenu
 bindsym F11 exec scratchpad show
 #~ bindsym F12 exec
 
