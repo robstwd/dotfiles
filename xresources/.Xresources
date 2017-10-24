@@ -78,8 +78,8 @@ URxvt*cursorColor: yellow
 ! URxvt*borderColor:                    color
 ! URxvt*iconFile:                       file
 ! URxvt*font:                           fontname
-! URxvt*font:xft:Droid Sans Mono:pixelsize=14:antialias=true:hinting=true
-URxvt*font:xft:DejaVu Sans Mono for Powerline:pixelsize=14:antialias=true:hinting=true
+URxvt*font:xft:Droid Sans Mono:pixelsize=16:antialias=true:hinting=true
+! URxvt*font:xft:DejaVu Sans Mono for Powerline:pixelsize=14:antialias=true:hinting=true
 ! URxvt*boldFont:                       fontname
 ! URxvt*italicFont:                     fontname
 ! URxvt*boldItalicFont:                 fontname
