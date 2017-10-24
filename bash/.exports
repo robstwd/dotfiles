@@ -1,23 +1,10 @@
 #!/bin/bash
 
 # environment variables
-export EDITOR=vim
+export EDITOR=nvim
 export XDG_CONFIG_HOME="/home/rob/.config"
 
 # added this 2016-06-18 in response to error: $ systemctl --user status
 # Failed to connect to bus: No such file or directory
 # https://answers.launchpad.net/ubuntu/+source/systemd/+question/287454
 export XDG_RUNTIME_DIR=/run/user/`id -u`
-
-if [ $(uname -m) == 'x86_64' ]
-then
-  export BSPWM_SOCKET="/tmp/bspwm-socket"
-  export BSPWM_TREE="/tmp/bspwm.tree"
-  export BSPWM_HISTORY="/tmp/bspwm.history"
-  export BSPWM_STACK="/tmp/bspwm.stack"
-  export PANEL_FIFO="/tmp/panel-fifo"
-  export PANEL_HEIGHT=24
-  #~ export PANEL_FONT="-*-fixed-*-*-*-*-10-*-*-*-*-*-*-*"
-  export PANEL_FONT="-*-dejavu sans mono for powerline-medium-r-normal-*-17-*-*-*-*-*-*-*"
-  export PANEL_WM_NAME=bspwm_panel
-fi
