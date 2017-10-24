@@ -34,8 +34,6 @@ urxvtd -q -f -o
 eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 export SSH_AUTH_SOCK
 
-# run bspwm
-#exec bspwm_run
 # exec twm
 session=${1:-i3}
 
