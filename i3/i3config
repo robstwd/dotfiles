@@ -285,7 +285,7 @@ bindsym F2 exec --no-startup-id i3-dmenu-desktop --dmenu='rofi -dmenu -hide-scro
 #~ bindsym F9 exec
 bindsym F10 exec rofi-passmenu
 bindsym F11 exec scratchpad show
-#~ bindsym F12 exec
+bindsym F12 exec rofi-power
 
 # ======================================================================
 # FUNCTION FN KEYS
